@@ -9,17 +9,17 @@ macOS:
   primary:
     layers:
       default: |
-        й ү у к е н ң г ш з х ъ 
-        ө ы в а п р о л д ж э ё 
-        ] я ч с м и т ь б ю / 
+        й ү у к е н ң г ш з х ъ ё
+        ө ы в а п р о л д ж э
+        я ч с м и т ь б ю / 
       shift: |
-        Й Ү У К Е Н Ң Г Ш З Х Ъ 
-        Ө Ы В А П Р О Л Д Ж Э Ё 
-        [ Я Ч С М И Т Ь Б Ю ? 
+        Й Ү У К Е Н Ң Г Ш З Х Ъ Ё
+        Ө Ы В А П Р О Л Д Ж Э
+        Я Ч С М И Т Ь Б Ю ? 
       caps: |
-        Й Ү У К Е Н Ң Г Ш З Х Ъ 
-        Ө Ы В А П Р О Л Д Ж Э Ё 
-        ] Я Ч С М И Т Ь Б Ю / 
+        Й Ү У К Е Н Ң Г Ш З Х Ъ Ё
+        Ө Ы В А П Р О Л Д Ж Э 
+        Я Ч С М И Т Ь Б Ю / 
       caps+shift: #shift
       alt: |
         ј ц ќ ® † њ ѓ ѕ ў ‘ “ ъ ё
@@ -28,26 +28,16 @@ macOS:
       alt+shift: |
         Ј Ц Ќ ® † Њ Ѓ Ѕ Ў ’ ” Ъ Ё
         Ф Ы Ћ ÷ © ₽ • Љ ∆ … Э
-        Ђ ≈ ≠ Μ И ™ ~ < > „
-      alt+caps: |
-        ~ ! @ # $ © ^ & * ( ) – ≠
-        Ј Џ Ў Ќ † Њ Ѓ Ѕ „ ’ ” Ґ
-        d Ѕ Ћ ± √ ∞ µ Љ L » Є |
-        § Ђ X C V І ƒ M < > Ї
+        Ђ ≈ ≠ µ И ™ ~ < > „
+      alt+caps: #alt
       ctrl: |
-        # ` 1 2 3 4 5 6 7 8 9 0 \u{1F} +
-        \u{11} \u{17} \u{5} \u{12} \u{14} \u{19} \u{15} \u{9} \u{F} \u{10} \u{1B} \u{1D}
-        \u{1} \u{13} \u{4} \u{6} \u{7} \u{8} \u{A} \u{B} \u{C} : " \u{1C}
-        0 \u{1A} \u{18} \u{3} \u{16} \u{2} \u{E} \u{D} , . /
       cmd: |
-        ` 1 2 3 4 5 6 7 8 9 0 - =
-        q w e r t y u i o p [ ]
-        a s d f g h j k l ; ' \
-        ` z x c v b n m , . /
+        q w e r t y u i o p [ ] \
+        a s d f g h j k l ; '
+        z x c v b n m , . /
       cmd+shift: |
-        ~ ! @ # $ % ^ & * ( ) _ +
-        Q W E R T Y U I O P { }
-        A S D F G H J K L : " |
+        Q W E R T Y U I O P { } |
+        A S D F G H J K L : "
         ~ Z X C V B N M < > ?
       cmd+alt: #cmd
       cmd+alt+shift: #cmd+shift
@@ -58,7 +48,7 @@ macOS:
     cmd+alt: \u{A0}
     alt+caps: \u{A0}
   deadKeys:
-    alt: ['¯', '¨', '´']
-    alt+caps: ['¯', '¨', '´']
+    alt: []
+    alt+caps: []
 
 longpress: !include tyv-longpress.yaml
