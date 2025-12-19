@@ -95,11 +95,10 @@ keyNames:
     go: че
     send: чорудар
     join: коштунар
-    cancel: ойталал
     continue: улаштыр
     done: чаа
-    emergency: онза байдал
     next: дараазында
     route: чорук изи
+  emergency: онза байдал
   undo: эгидер
   redo: катаптаар
