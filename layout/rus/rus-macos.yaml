@@ -1,52 +1,120 @@
 displayNames:
-  en: Russian
-  ru: Русский
-  tyv: Орус
+  en: Awarian
+  ru: Аварский
+  tyv: Авар
 
 decimal: ','
 
-macOS:
+iOS:
   primary:
     layers:
       default: |
         ] 1 2 3 4 5 6 7 8 9 0 - =
-          й ц у к е н г ш щ з х ъ ё
-          ф ы в а п р о л д ж э
-          я ч с м и т ь б ю /
-      shift: &SHIFT |
+        щ гъ ш хь ц тӀ цӀ кь ж й ф
+        в г с б е л у и з м лъ
+        гӀ кӀ гь а р н д о я к т
+        \s{shift} чӀ ч п х хъ къ э лӀ ю \s{backspace}
+      shift: |
         [ ! " № % : , . ; ( ) _ +
-          Й Ц У К Е Н Г Ш Щ З Х Ъ Ё
-          Ф Ы В А П Р О Л Д Ж Э
-          Я Ч С М И Т Ь Б Ю ?
+        Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф
+        В Г С Б Е Л У И З М ЛЪ
+        ГӀ КӀ ГЬ А Р Н Д О Я К Т
+        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{baskspace}
+
       caps: |
         ] 1 2 3 4 5 6 7 8 9 0 - =
-          Й Ц У К Е Н Г Ш Щ З Х Ъ Ё
-          Ф Ы В А П Р О Л Д Ж Э
-          Я Ч С М И Т Ь Б Ю /
-      caps+shift: *SHIFT
-      alt: &ALT |
-        ] ! @ # $ % ^ & * { } – »
-          ј џ ќ ® † њ ѓ ѕ ў ‘ “ ъ ё
-          ƒ ы ћ ÷ © ₽ ° љ ∆ … э
-          ђ ≈ ≠ µ и ™ ~ ≤ ≥ “
+        Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф
+        В Г С Б Е Л У И З М ЛЪ
+        ГӀ КӀ ГЬ А Р Н Д О Я К Т
+        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{baskspace}
+
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0
+        - / : ; ( ) ₽ & @ "
+        \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
+      symbols-2: |
+        [ ] { } # % ^ * + =
+        _ \ | ~ < > $ € ¥ •
+        \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
+  iPad-9in:
+    layers:
+      default: |
+        \s{spacer:0.3}   щ гъ ш хь ц тӀ цӀ кь ж й ф \s{spacer:1.7}
+        \s{spacer:0.6}   в г с б е л у и з м лъ \s{return:1.4}
+        \s{spacer:0.6}   гӀ кӀ гь а р н д о я к т   \s{return:1.4}
+        \s {shift}       чӀ ч п х хъ къ э лӀ ю \s{shift:2.0}
+      shift: |
+        \s{spacer:0.3}   Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф \s{spacer:1.7}
+        \s{spacer:0.6}   В Г С Б Е Л У И З М ЛЪ \s{return:1.4}
+        \s{spacer:0.6}   ГӀ КӀ ГЬ А Р Н Д О Я К Т \s{return:1.4}
+        \s{shift}        ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{shift:2.0}
+      alt: |
+        \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
+        \s{spacer:0.6}   @ # № $ ´ & * ( ) ‘ “ \s{return:1.4}
+        \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
       alt+shift: |
-        [ | " £ € ∞ ¬ ¶ √ ' ` — «
-          Ј Џ Ќ ® † Њ Ѓ Ѕ Ў ’ ” Ъ Ё
-          Ƒ Ы Ћ ÷ © ₽ • Љ ∆ … Э
-          Ђ ≈ ≠ µ И ™ ~ < > „
-      alt+caps: *ALT
-      cmd: &CMD |
-        ` 1 2 3 4 5 6 7 8 9 0 - =
-          q w e r t y u i o p [ ] \
-          a s d f g h j k l ; '
-          z x c v b n m , . /
-      cmd+shift: &CMD+SHIFT |
-        ~ ! @ # $ % ^ & * ( ) _ +  
-          Q W E R T Y U I O P { } |
-          A S D F G H J K L : "
-          Z X C V B N M < > ?
-      cmd+alt: *CMD
-      cmd+alt+shift: *CMD+SHIFT
+        \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
+        \s{spacer:0.6}   @ # № $ ´ & * ( ) ‘ “ \s{return:1.4}
+        \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
+      symbols-1: |
+        \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
+        \s{spacer:0.6}   @ # № $ ´ & * ( ) ‘ “ \s{return:1.4}
+        \s{shiftSymbols} % _ - + = / ; : , .   \s{shiftSymbols:2.0}
+      symbols-2: |
+        \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
+        \s{spacer:0.6}   € £ ¥ ± • ` ^ [ ] { } \s{return:1.4}
+        \s{shiftSymbols} § | ~ … ≠ \ < > ! ?   \s{shiftSymbols:2.0}
+  iPad-12in:
+    layers:
+      default: |
+        >                1 2 3 4 5 6 7 8 9 0 - = \s{backspace:1.5}
+        \s{tab:1.5}      щ гъ ш хь ц тӀ цӀ кь ж й ф \s{return}
+        \s{caps:1.75}    в г с б е л у и з м лъ \s{return:0.75}
+        \s{shift:1.25} ] гӀ кӀ гь а р н д о я к т / \s{shift:2.25}
+                         чӀ ч п х хъ къ э лӀ ю
+      shift: |
+        <                ! ” № % : , . ; ( ) _ + \s{backspace:1.5}
+        \s{tab:1.5}      Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф \s{return}
+        \s{caps:1.75}    В Г С Б Е Л У И З М ЛЪ \s{return:0.75}
+        \s{shift:1.25} [ ГӀ КӀ ГЬ А Р Н Д О Я К Т ? \s{shift:2.25}
+                         ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю
+      alt: |
+        `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
+        \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
+        \s{caps:1.75}    - / : ; ( ) $ & @ £ ¥ ~ \s{return:0.75}
+        \s{shift:1.25}     … . , ? ! ' " _ €     \s{shift:2.25}
+      alt+shift: |
+        `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
+        \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
+        \s{caps:1.75}    - / : ; ( ) $ & @ £ ¥ ~ \s{return:0.75}
+        \s{shift:1.25}     … . , ? ! ' " _ €     \s{shift:2.25}
+      symbols-1: |
+        `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
+        \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
+        \s{caps:1.75}    - / : ; ( ) $ & @ £ ¥ ~ \s{return:0.75}
+        \s{shift:1.25}     … . , ? ! ' " _ €     \s{shift:2.25}
+      symbols-2: |
+        `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
+        \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
+        \s{caps:1.75}    - / : ; ( ) $ & @ £ ¥ ~ \s{return:0.75}
+        \s{shift:1.25}     … . , ? ! ' " _ €     \s{shift:2.25}
   deadKeys:
-    alt: []
-    alt+caps: []
+    alt: ['¯', '¨', '´']
+
+
+keyNames:
+  space: Гьоркьобакӏ
+  return: Лъей
+  return-alts:
+    search: Хъирщи
+    go: Рагьизе
+    send: БитӀизе
+    join: Цолъизе
+    route: Нух
+    next: Хадусеб
+    continue: Цебехун
+    done: ЛӀугӀана
+  emergency: SOS
+  cancel: НахъчӀвазе
+  undo: ТӀадбуссинабизе
+  redo: Такраризе
