@@ -1,7 +1,7 @@
 displayNames:
-  en: Awarian
+  en: Avar
   ru: Аварский
-  tyv: Авар
+  av: Авар
 
 decimal: ','
 
@@ -19,14 +19,14 @@ iOS:
         Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф
         В Г С Б Е Л У И З М ЛЪ
         ГӀ КӀ ГЬ А Р Н Д О Я К Т
-        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{baskspace}
+        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{backspace}
 
       caps: |
         ] 1 2 3 4 5 6 7 8 9 0 - =
         Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф
         В Г С Б Е Л У И З М ЛЪ
         ГӀ КӀ ГЬ А Р Н Д О Я К Т
-        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{baskspace}
+        \s{shift} ЧӀ Ч П Х ХЪ КЪ Э ЛӀ Ю \s{backspace}
 
       symbols-1: |
         1 2 3 4 5 6 7 8 9 0
@@ -42,7 +42,7 @@ iOS:
         \s{spacer:0.3}   щ гъ ш хь ц тӀ цӀ кь ж й ф \s{spacer:1.7}
         \s{spacer:0.6}   в г с б е л у и з м лъ \s{return:1.4}
         \s{spacer:0.6}   гӀ кӀ гь а р н д о я к т   \s{return:1.4}
-        \s {shift}       чӀ ч п х хъ къ э лӀ ю \s{shift:2.0}
+        \s{shift}        чӀ ч п х хъ къ э лӀ ю \s{shift:2.0}
       shift: |
         \s{spacer:0.3}   Щ ГЪ Ш ХЬ Ц ТӀ ЦӀ КЬ Ж Й Ф \s{spacer:1.7}
         \s{spacer:0.6}   В Г С Б Е Л У И З М ЛЪ \s{return:1.4}
