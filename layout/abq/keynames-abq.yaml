@@ -1,0 +1,15 @@
+space: Бжьаара
+return: Йтаргылра
+return-alts:
+  search: Азыпшгӏара
+  go: Азцара
+  send: Йщтира
+  join: Алалра
+  route: Мгӏвалыхра
+  done: Хӏазырпӏ
+  next: Йащтагӏайуа
+  continue: Йджвыквцӏахра
+emergency: Цхърагӏара
+cancel: Йныххра
+undo: Акъвыцӏхра
+redo: Аквгӏацапахра
