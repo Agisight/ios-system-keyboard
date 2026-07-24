@@ -1,7 +1,7 @@
 displayNames:
-  eng: Chuvash (Yandex)
-  rus: Чувашский (Яндекс)
-  chv: Чӑваш (Яндекс)
+  eng: Chuvash (4 rows)
+  rus: Чувашский (4 ряда)
+  chv: Чӑваш (4 рет)
 
 decimal: ','
 ABC: 'АӐБ'
@@ -11,13 +11,15 @@ iOS:
   primary:
     layers:
       default: |
-        й ц у к е ӗ ҫ н г ш щ з х
-        ф ы в а п ӑ р о л д ж э
-        \s{shift} я ч с м ӳ и т ь б ю \s{backspace}
+        ё ӗ ҫ ӑ ӳ ъ ь х э ю
+        й ц у к е н г ш щ з
+        ф ы в а п р о л д ж
+        \s{shift} я ч с м и т б \s{backspace}
       shift: |
-        Й Ц У К Е Ӗ Ҫ Н Г Ш Щ З Х
-        Ф Ы В А П Ӑ Р О Л Д Ж Э
-        \s{shift} Я Ч С М Ӳ И Т Ь Б Ю \s{backspace}
+        Ё Ӗ Ҫ Ӑ Ӳ Ъ Ь Х Э Ю
+        Й Ц У К Е Н Г Ш Щ З
+        Ф Ы В А П Р О Л Д Ж
+        \s{shift} Я Ч С М И Т Б \s{backspace}
       symbols-1: |
         1 2 3 4 5 6 7 8 9 0
         - / : ; ( ) ₽ & @ "
@@ -29,24 +31,26 @@ iOS:
   iPad-9in:
     layers:
       default: |
-        \s{spacer:0.3}   й ц у к е ӗ ҫ н г ш щ з х \s{spacer:1.7}
-        \s{spacer:0.6}   ф ы в а п ӑ р о л д ж э \s{return:1.4}
-        \s{shift}        я ч с м ӳ и т ь б ю   \s{shift:2.0}
+        \s{spacer:0.3}   ё ӗ ҫ ӑ ӳ ъ ь х э ю \s{spacer:1.7}
+        \s{spacer:0.3}   й ц у к е н г ш щ з \s{spacer:1.7}
+        \s{spacer:0.6}   ф ы в а п р о л д ж \s{return:1.4}
+        \s{shift}        я ч с м и т б   \s{shift:2.0}
       shift: |
-        \s{spacer:0.3}   Й Ц У К Е Ӗ Ҫ Н Г Ш Щ З Х \s{spacer:1.7}
-        \s{spacer:0.6}   Ф Ы В А П Ӑ Р О Л Д Ж Э \s{return:1.4}
-        \s{shift}        Я Ч С М Ӳ И Т Ь Б Ю   \s{shift:2.0}
+        \s{spacer:0.3}   Ё Ӗ Ҫ Ӑ Ӳ Ъ Ь Х Э Ю \s{spacer:1.7}
+        \s{spacer:0.3}   Й Ц У К Е Н Г Ш Щ З \s{spacer:1.7}
+        \s{spacer:0.6}   Ф Ы В А П Р О Л Д Ж \s{return:1.4}
+        \s{shift}        Я Ч С М И Т Б   \s{shift:2.0}
       alt: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ “ \s{return:1.4}
         \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
       alt+shift: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ “ \s{return:1.4}
         \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
       symbols-1: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ “ \s{return:1.4}
         \s{shiftSymbols} % _ - + = / ; : , .   \s{shiftSymbols:2.0}
       symbols-2: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
@@ -55,15 +59,15 @@ iOS:
   iPad-12in:
     layers:
       default: |
-        >                1 2 3 4 5 6 7 8 9 0 - = \s{backspace:1.5}
-        \s{tab:1.5}      й ц у к е ӗ ҫ н г ш щ з х \s{return}
-        \s{caps:1.75}    ф ы в а п ӑ р о л д ж э \s{return:0.75}
-        \s{shift:1.25} ] я ч с м ӳ и т ь б ю /     \s{shift:2.25}
+        >                ё ӗ ҫ ӑ ӳ ъ ь х э ! - = \s{backspace:1.5}
+        \s{tab:1.5}      й ц у к е н г ш щ з ( ) \s{return}
+        \s{caps:1.75}    ф ы в а п р о л д ж ; « \s{return:0.75}
+        \s{shift:1.25} ] я ч с м и т б ю ?     \s{shift:2.25}
       shift: |
-        <                ! " № % : , . ; ( ) _ + \s{backspace:1.5}
-        \s{tab:1.5}      Й Ц У К Е Ӗ Ҫ Н Г Ш Щ З Х \s{return}
-        \s{caps:1.75}    Ф Ы В А П Ӑ Р О Л Д Ж Э \s{return:0.75}
-        \s{shift:1.25} [ Я Ч С М Ӳ И Т Ь Б Ю ?     \s{shift:2.25}
+        <                Ё Ӗ Ҫ Ӑ Ӳ Ъ Ь Х Э \ _ + \s{backspace:1.5}
+        \s{tab:1.5}      Й Ц У К Е Н Г Ӕ Ш З [ ] \s{return}
+        \s{caps:1.75}    Ф Ы В А П Р О Л Д Ж : » \s{return:0.75}
+        \s{shift:1.25} [ Я Ч С М И Т Ь Б Ю /     \s{shift:2.25}
       alt: |
         `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
         \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
@@ -87,5 +91,5 @@ iOS:
   deadKeys:
     alt: ['¯', '¨', '´']
 
-longpress: !include chv-yandex-longpress.yaml
+longpress: !include chv-4-rows-longpress.yaml
 keyNames: !include keynames-chv.yaml

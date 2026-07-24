@@ -1,26 +1,26 @@
 displayNames:
-  eng: Chuvash (Google)
-  rus: Русский (Google)
-  chv: Чӑваш (Google)
+  eng: Chuvash (Ergonomic Compact)
+  rus: Чувашский (эргономичный компактный)
+  chv: Чӑваш (компактлӑ эргономикӑллӑ)
 
 decimal: ','
-ABC: 'АӐБ'
-abc: 'аӑб'
+ABC: 'АӐВ'
+abc: 'аӑв'
 
 iOS:
   primary:
     layers:
       default: |
-        й у ӳ к е ӗ н г ш з х
-        ф ы в а ӑ п р о л д э
-        \s{shift} я ч с ҫ м и т ь ю \s{backspace}
+        ь ӳ с ӑ й ш ӗ к и
+        л н е п м а т р
+        \s{shift} ы ч ҫ в у х \s{backspace}
       shift: |
-        Й У Ӳ К Е Ӗ Н Г Ш З Х
-        Ф Ы В А Ӑ П Р О Л Д Э
-        \s{shift} Я Ч С Ҫ М И Т Ь Ю \s{backspace}
+        Ь Ӳ С Ӑ Й Ш Ӗ К И
+        Л Н Е П М А Т Р
+        \s{shift} Ы Ч Ҫ В У Х \s{backspace}
       symbols-1: |
         1 2 3 4 5 6 7 8 9 0
-        - / : ; ( ) ₽ & @ “
+        - / : ; ( ) ₽ & @ "
         \s{shiftSymbols} \s{spacer:0.25} . , ? ! ' \s{spacer:0.25} \s{backspace}
       symbols-2: |
         [ ] { } # % ^ * + =
@@ -29,24 +29,24 @@ iOS:
   iPad-9in:
     layers:
       default: |
-        \s{spacer:0.3}   й у ӳ к е ӗ н г ш з х \s{spacer:1.7}
-        \s{spacer:0.6}   ф ы в а ӑ п р о л д э \s{return:1.4}
-        \s{shift}        я ч с ҫ м и т ь ю ъ   \s{shift:2.0}
+        \s{spacer:0.3}   ь ӳ с ӑ й ш ӗ к и \s{spacer:1.7}
+        \s{spacer:0.6}   л н е п м а т р \s{return:1.4}
+        \s{shift}        ы ч ҫ в у х \s{backspace}
       shift: |
-        \s{spacer:0.3}   Й У Ӳ К Е Ӗ Н Г Ш З Х \s{spacer:1.7}
-        \s{spacer:0.6}   Ф Ы В А Ӑ П Р О Л Д Э \s{return:1.4}
-        \s{shift}        Я Ч С Ҫ М И Т Ь Ю Ъ   \s{shift:2.0}
+        \s{spacer:0.3}   Ь Ӳ С Ӑ Й Ш Ӗ К И \s{spacer:1.7}
+        \s{spacer:0.6}   Л Н Е П М А Т Р \s{return:1.4}
+        \s{shift}        Ы Ч Ҫ В У Х \s{backspace}
       alt: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ ” \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
         \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
       alt+shift: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ ” \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
         \s{shift}        % _ - + = / ; : , .   \s{shift:2.0}
       symbols-1: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
-        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ‘ “ \s{return:1.4}
+        \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
         \s{shiftSymbols} % _ - + = / ; : , .   \s{shiftSymbols:2.0}
       symbols-2: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
@@ -56,14 +56,14 @@ iOS:
     layers:
       default: |
         >                1 2 3 4 5 6 7 8 9 0 - = \s{backspace:1.5}
-        \s{tab:1.5}      й у ӳ к е ӗ н г ш з х — \s{return}
-        \s{caps:1.75}    ф ы в а ӑ п р о л д э « \s{return:0.75}
-        \s{shift:1.25} ] я ч с ҫ м и т ь ю /     \s{shift:2.25}
+        \s{tab:1.5}      ь ӳ с ӑ й ш ӗ к и ! ( ) \s{return}
+        \s{caps:1.75}    : л н е п м а т р « » — \s{return:0.75}
+        \s{shift:1.25}   ; ы ч ҫ в у х , . ?     \s{shift:2.25}
       shift: |
-        <                ! " № % : , . ; ( ) _ + \s{backspace:1.5}
-        \s{tab:1.5}      Й У Ӳ К Е Ӗ Н Г Ш З Х \ \s{return}
-        \s{caps:1.75}    Ф Ы В А Ӑ П Р О Л Д Э » \s{return:0.75}
-        \s{shift:1.25} [ Я Ч С Ҫ М И Т Ь Ю ?     \s{shift:2.25}
+        <                ~ @ # ° % ^ № * ‘ ’ _ + \s{backspace:1.5}
+        \s{tab:1.5}      Ь Ӳ С Ӑ Й Ш Ӗ К И – [ ] \s{return}
+        \s{caps:1.75}    § Л Н Е П М А Т Р “ ” \ \s{return:0.75}
+        \s{shift:1.25}   | Ы Ч Ҫ В У Х < > /     \s{shift:2.25}
       alt: |
         `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
         \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
@@ -87,5 +87,5 @@ iOS:
   deadKeys:
     alt: ['¯', '¨', '´']
 
-longpress: !include chv-google-longpress.yaml
+longpress: !include chv-ergonomic-compact-longpress.yaml
 keyNames: !include keynames-chv.yaml

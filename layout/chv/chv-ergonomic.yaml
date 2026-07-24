@@ -1,7 +1,7 @@
 displayNames:
-  eng: Chuvash (Compact)
-  rus: Чувашский (компактный)
-  chv: Чӑваш (компактлӑ)
+  eng: Chuvash (Ergonomic)
+  rus: Чувашский (эргономичный)
+  chv: Чӑваш (эргономикӑллӑ)
 
 decimal: ','
 ABC: 'АӐВ'
@@ -11,13 +11,13 @@ iOS:
   primary:
     layers:
       default: |
-        ь ӳ с ӑ й ш ӗ к и
-        л н е п м а т р
-        \s{shift} ы ч ҫ в у х \s{backspace}
+        ь ӳ с ӑ й ш ӗ к и ю
+        э л н е п м а т р
+        \s{shift} я ы ч ҫ в у х \s{backspace}
       shift: |
-        Ь Ӳ С Ӑ Й Ш Ӗ К И
-        Л Н Е П М А Т Р
-        \s{shift} Ы Ч Ҫ В У Х \s{backspace}
+        Ь Ӳ С Ӑ Й Ш Ӗ К И Ю
+        Э Л Н Е П М А Т Р
+        \s{shift} Я Ы Ч Ҫ В У Х \s{backspace}
       symbols-1: |
         1 2 3 4 5 6 7 8 9 0
         - / : ; ( ) ₽ & @ "
@@ -29,13 +29,13 @@ iOS:
   iPad-9in:
     layers:
       default: |
-        \s{spacer:0.3}   ь ӳ с ӑ й ш ӗ к и \s{spacer:1.7}
-        \s{spacer:0.6}   л н е п м а т р \s{return:1.4}
-        \s{shift}        ы ч ҫ в у х \s{backspace}
+        \s{spacer:0.3}   ь ӳ с ӑ й ш ӗ к и ю \s{spacer:1.7}
+        \s{spacer:0.6}   э л н е п м а т р \s{return:1.4}
+        \s{shift}        я ы ч ҫ в у х \s{backspace}
       shift: |
-        \s{spacer:0.3}   Ь Ӳ С Ӑ Й Ш Ӗ К И \s{spacer:1.7}
-        \s{spacer:0.6}   Л Н Е П М А Т Р \s{return:1.4}
-        \s{shift}        Ы Ч Ҫ В У Х \s{backspace}
+        \s{spacer:0.3}   Ь Ӳ С Ӑ Й Ш Ӗ К И Ю \s{spacer:1.7}
+        \s{spacer:0.6}   Э Л Н Е П М А Т Р \s{return:1.4}
+        \s{shift}        Я Ы Ч Ҫ В У Х \s{backspace}
       alt: |
         \s{spacer:0.3}   1 2 3 4 5 6 7 8 9 0 — \s{backspace:1.7}
         \s{spacer:0.6}   @ # № ₽ ´ & * ( ) ' " \s{return:1.4}
@@ -56,14 +56,14 @@ iOS:
     layers:
       default: |
         >                1 2 3 4 5 6 7 8 9 0 - = \s{backspace:1.5}
-        \s{tab:1.5}      ь ӳ с ӑ й ш ӗ к и ! ( ) \s{return}
-        \s{caps:1.75}    : л н е п м а т р « » — \s{return:0.75}
-        \s{shift:1.25}   ; ы ч ҫ в у х , . ?     \s{shift:2.25}
+        \s{tab:1.5}      ь ӳ с ӑ й ш ӗ к и ю ( ) \s{return}
+        \s{caps:1.75}    э л н е п м а т р « » — \s{return:0.75}
+        \s{shift:1.25}   я ы ч ҫ в у х , . ?     \s{shift:2.25}
       shift: |
-        <                ~ @ # ° % ^ № * ‘ ’ _ + \s{backspace:1.5}
-        \s{tab:1.5}      Ь Ӳ С Ӑ Й Ш Ӗ К И – [ ] \s{return}
-        \s{caps:1.75}    § Л Н Е П М А Т Р “ ” \ \s{return:0.75}
-        \s{shift:1.25}   | Ы Ч Ҫ В У Х < > /     \s{shift:2.25}
+        <                ~ @ # ° % ^ № * ; : _ + \s{backspace:1.5}
+        \s{tab:1.5}      Ь Ӳ С Ӑ Й Ш Ӗ К И Ю [ ] \s{return}
+        \s{caps:1.75}    Э Л Н Е П М А Т Р “ ” / \s{return:0.75}
+        \s{shift:1.25}   Я Ы Ч Ҫ В У Х < > !     \s{shift:2.25}
       alt: |
         `                1 2 3 4 5 6 7 8 9 0 < > \s{backspace:1.5}
         \s{tab:1.5}      [ ] { } # % ^ * + = \ | \s{return}
