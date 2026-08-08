@@ -13,12 +13,14 @@
   --sep:rgba(0,0,0,.1);--font:-apple-system,'Helvetica Neue',sans-serif;
   --mono:'SF Mono','Menlo',monospace;
 }
-body{font-family:var(--font);background:#1c1c1e;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:72px 16px 48px;overflow-y:auto}
+body{font-family:var(--font);background:#1c1c1e;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:16px 16px 48px;overflow-y:auto}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,#2d2d3a 0%,#1c1c1e 60%);z-index:-1}
 
 @media (max-width:768px){
   body{padding:0!important;background:#f2f2f7!important;align-items:stretch!important}
   body::before{display:none!important}
+  .app-container{width:100%}
+  #device-selector-container{display:none!important}
   .iphone{width:100%!important;border-radius:0!important;padding:0!important;background:transparent!important;box-shadow:none!important}
   .iphone::before,.iphone::after{display:none!important}
   .di{display:none!important}
@@ -204,41 +206,78 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .view-ipad9 .k, .view-ipad12 .k { height: 52px !important; font-size: 19px !important; }
 .view-ipad9 .lph, .view-ipad12 .lph { font-size: 12px !important; }
 
-.k svg { display: block; margin: auto; pointer-events: none; }
+.iphone.view-ipadmini { width: 420px !important; }
+.iphone.view-ipadmini .screen { height: 560px !important; }
+.iphone.view-ipadmini .di { display: none !important; }
+.iphone.view-ipadmini .sbar { padding: 14px 26px 6px !important; }
 
-/* Device switcher */
-.dev-switch {
-  background: #e3e3e9;
-  border-radius: 8px;
-  padding: 2px;
-  display: inline-flex;
-  gap: 2px;
-  font-family: var(--font);
+.view-ipadmini .k { height: 46px !important; font-size: 16px !important; }
+.view-ipadmini .lph { font-size: 11px !important; }
+
+.k svg { display: block; margin: auto; pointer-events: none; }
+.k.k-mid-text { font-size: 14px !important; }
+.k.k-long-text { font-size: 12px !important; }
+
+/* App Container and External Device Selector */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
-.ds-btn {
+#device-selector-container {
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  visibility: hidden;
+}
+.ext-switch {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 4px;
+  display: inline-flex;
+  gap: 4px;
+}
+.ext-btn {
   background: transparent;
   border: none;
-  border-radius: 6px;
-  padding: 4px 10px;
+  border-radius: 8px;
+  padding: 8px 16px;
   cursor: pointer;
-  color: #000;
+  color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
-  font-size: 12px;
-  transition: background 0.1s, box-shadow 0.1s;
+  font-size: 14px;
+  transition: all 0.2s;
   font-family: var(--font);
 }
-.ds-btn.active {
+.ext-btn:hover {
+  color: #fff;
+}
+.ext-btn.active {
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  color: #000;
   font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 </style>
 </head>
 <body>
-<div class="iphone">
-  <div class="di"></div>
-  <div class="screen" id="screen">
-    <!-- filled by JS -->
+<div class="app-container">
+  <div id="device-selector-container">
+    <div class="ext-switch">
+      <button class="ext-btn active" id="btn-phone" onclick="setDevice('phone')">iPhone</button>
+      <button class="ext-btn" id="btn-ipad9" onclick="setDevice('ipad9')">iPad 9.7"</button>
+      <button class="ext-btn" id="btn-ipad12" onclick="setDevice('ipad12')">iPad 12.9"</button>
+    </div>
+  </div>
+  <div class="iphone">
+    <div class="di"></div>
+    <div class="screen" id="screen">
+      <!-- filled by JS -->
+    </div>
   </div>
 </div>
 
@@ -250,10 +289,26 @@ const DATA=/*BUILD_DATA*/[];
 
 const SYM123_DEFAULT=[['1','2','3','4','5','6','7','8','9','0'],['-','/',':',';','(',')','$','&','@','"'],['.',',','?','!','\'']];
 const SYMPUNCT_DEFAULT=[['[',']','{','}','#','%','^','*','+','='],['_','\\','|','~','<','>','€','£','¥','•'],['.',',','?','!','\'']];
-function getSym123(){ return (curL&&curL.sym1) ? curL.sym1.slice(0,3) : SYM123_DEFAULT; }
-function getSymPunct(){ return (curL&&curL.sym2) ? curL.sym2.slice(0,3) : SYMPUNCT_DEFAULT; }
+function getSym123(){
+  if ((deviceMode==='ipad9' || deviceMode==='ipadmini') && curL && curL.ipad9 && curL.ipad9.sym1) {
+    return curL.ipad9.sym1.slice(0,3);
+  }
+  if (deviceMode==='ipad12' && curL && curL.ipad12 && curL.ipad12.sym1) {
+    return curL.ipad12.sym1.slice(0,3);
+  }
+  return (curL&&curL.sym1) ? curL.sym1.slice(0,3) : SYM123_DEFAULT;
+}
+function getSymPunct(){
+  if ((deviceMode==='ipad9' || deviceMode==='ipadmini') && curL && curL.ipad9 && curL.ipad9.sym2) {
+    return curL.ipad9.sym2.slice(0,3);
+  }
+  if (deviceMode==='ipad12' && curL && curL.ipad12 && curL.ipad12.sym2) {
+    return curL.ipad12.sym2.slice(0,3);
+  }
+  return (curL&&curL.sym2) ? curL.sym2.slice(0,3) : SYMPUNCT_DEFAULT;
+}
 
-let ST={isShift:false,isSym:false,isPunct:false};
+let ST={isShift:false,isSym:false,isPunct:false,isCaps:false};
 let lpTimer=null,lpEl=null,lpPop=null,lpIdx=-1,lpWasShown=false;
 let curL=null,curLang=null;
 let listScrollY=0;
@@ -485,10 +540,18 @@ function showList(anim){
   deviceMode = 'phone';
   const iph = document.querySelector('.iphone');
   if (iph) {
-    iph.classList.remove('view-ipad9', 'view-ipad12');
+    iph.classList.remove('view-ipad9', 'view-ipad12', 'view-ipadmini');
   }
+  const extContainer = document.getElementById('device-selector-container');
+  if (extContainer) {
+    extContainer.style.visibility = 'hidden';
+  }
+  // Reset active switcher button to phone
+  document.querySelectorAll('.ext-btn').forEach(btn => btn.classList.remove('active'));
+  const btnPhone = document.getElementById('btn-phone');
+  if (btnPhone) btnPhone.classList.add('active');
   const sc=document.getElementById('screen');
-  const cls=anim?'screen-inner anim-back':'screen-inner';
+  const cls='screen-inner';
   let html=`<div class="${cls}">`;
   html+=sbar();
   html+=`<div class="navbar" style="display:flex;justify-content:space-between;align-items:center;padding-right:16px;"><div class="nb-title">Клавиатуры</div><a href="ldml-keyboards.html" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:600;background:rgba(0,122,255,0.1);padding:4px 10px;border-radius:12px;">LDML 3.0 ›</a></div>`;
@@ -522,7 +585,8 @@ function showList(anim){
   });
   html+=`</div></div>`;
   sc.innerHTML=html;
-  setTimeout(()=>{const si=sc.querySelector('.screen-inner');if(si)si.classList.remove('anim-back');const lv=sc.querySelector('.list-view');if(lv&&listScrollY)lv.scrollTop=listScrollY},anim?10:0);
+  const lv=sc.querySelector('.list-view');
+  if(lv&&listScrollY) lv.scrollTop=listScrollY;
 }
 
 function openKbd(langIdx,layIdx,secIdx){
@@ -532,7 +596,7 @@ function openKbd(langIdx,layIdx,secIdx){
   const lang=sec.langs[parseInt(langIdx)];
   const lay=lang.layouts[parseInt(layIdx)];
   curL=lay;curLang=lang;
-  ST={isShift:false,isSym:false,isPunct:false};
+  ST={isShift:false,isSym:false,isPunct:false,isCaps:false};
   showKbd(sec.color);
 }
 
@@ -540,9 +604,14 @@ function setDevice(mode) {
   deviceMode = mode;
   const iph = document.querySelector('.iphone');
   if (iph) {
-    iph.classList.remove('view-ipad9', 'view-ipad12');
+    iph.classList.remove('view-ipad9', 'view-ipad12', 'view-ipadmini');
     if (mode !== 'phone') iph.classList.add('view-' + mode);
   }
+  // Update active button state
+  document.querySelectorAll('.ext-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('btn-' + mode);
+  if (activeBtn) activeBtn.classList.add('active');
+  
   showKbd();
 }
 
@@ -551,16 +620,21 @@ function showKbd(color){
   const sc=document.getElementById('screen');
   const backChev=`<svg viewBox="0 0 9 15" fill="none" width="9" height="15"><path d="M7.5 1L1 7.5L7.5 14" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   
-  let switcherHtml = '';
-  if (curL.ipad9 || curL.ipad12) {
-    switcherHtml = `<div class="dev-switch">
-      <button class="ds-btn ${deviceMode==='phone'?'active':''}" onclick="event.stopPropagation();setDevice('phone')">iPhone</button>
-      ${curL.ipad9 ? `<button class="ds-btn ${deviceMode==='ipad9'?'active':''}" onclick="event.stopPropagation();setDevice('ipad9')">iPad 9.7"</button>` : ''}
-      ${curL.ipad12 ? `<button class="ds-btn ${deviceMode==='ipad12'?'active':''}" onclick="event.stopPropagation();setDevice('ipad12')">iPad 12.9"</button>` : ''}
-    </div>`;
+  // Show external switcher tabs and adjust button visibility
+  const extContainer = document.getElementById('device-selector-container');
+  if (extContainer) {
+    if (curL.ipad9 || curL.ipad12) {
+      const btn9 = document.getElementById('btn-ipad9');
+      const btn12 = document.getElementById('btn-ipad12');
+      if (btn9) btn9.style.display = curL.ipad9 ? 'inline-block' : 'none';
+      if (btn12) btn12.style.display = curL.ipad12 ? 'inline-block' : 'none';
+      extContainer.style.visibility = 'visible';
+    } else {
+      extContainer.style.visibility = 'hidden';
+    }
   }
   
-  sc.innerHTML=`<div class="screen-inner anim-enter">
+  sc.innerHTML=`<div class="screen-inner">
     ${sbar()}
     <div class="navbar">
       <div class="nb-back" onclick="showList(true)">${backChev} Языки</div>
@@ -570,14 +644,12 @@ function showKbd(color){
       <div class="kv-field" style="display:flex;flex-direction:column;justify-content:space-between">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
           <div class="kv-label">${curL.label}</div>
-          ${switcherHtml}
         </div>
         <div class="kv-text" id="sft"></div>
       </div>
       <div class="kbd" id="kbd"></div>
       <div class="home-ind"><div></div></div>
     </div></div>`;
-  setTimeout(()=>{const si=sc.querySelector('.screen-inner');if(si)si.classList.remove('anim-enter')},300);
   renderKbd();
 }
 
@@ -598,7 +670,7 @@ function renderKbd(){
     if(type==='backspace') return {type:'del',w:w||1.5,lbl:'⌫'};
     if(type==='return') return {type:'ret',w:w||1.5,lbl:curL.ret||'Giriş'};
     if(type==='tab') return {type:'key',w:w||1.5,lbl:'⇥',act:''};
-    if(type==='caps') return {type:'key',w:w||1.75,lbl:'⇪',act:''};
+    if(type==='caps') return {type:'caps',w:w||1.75,lbl:ST.isCaps?'ABC':'abc'};
     if(type==='shiftSymbols'||type==='#+=') return {type:'s123',w:w||1.5,lbl:ST.isPunct?'123':'#+='};
     return {type:'key',lbl:t,act:t};
   };
@@ -613,9 +685,15 @@ function renderKbd(){
         k.innerHTML = item.lbl;
       } else {
         k.textContent = item.lbl;
+        const len = item.lbl.length;
+        if (len > 5) {
+          k.classList.add('k-long-text');
+        } else if (len >= 3) {
+          k.classList.add('k-mid-text');
+        }
       }
-      if(item.type!=='key') k.classList.add('sp');
-      if(item.type==='sh' && ST.isShift) k.classList.add('kon');
+      if(item.type!=='key' && item.type!=='caps') k.classList.add('sp');
+      if((item.type==='sh' && ST.isShift) || (item.type==='caps' && ST.isCaps)) k.classList.add('kon');
     }
 
     const w=item.w||1;
@@ -630,14 +708,26 @@ function renderKbd(){
         k.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];startLp(t.clientX,t.clientY,k,item.act,opts)},{passive:false});
       }
     } else {
-      const acts={sh:'__sh',del:'__del',ret:'__ret',s123:'__pct',sp:'__sp'};
+      const acts={sh:'__sh',del:'__del',ret:'__ret',s123:'__pct',sp:'__sp',caps:'__caps'};
       if(acts[item.type]) k.addEventListener('click',e=>{e.stopPropagation();doKey(acts[item.type],k)});
     }
     return k;
   }
 
   if(ST.isSym||ST.isPunct){
-    const d=ST.isPunct?getSymPunct():getSym123();
+    let d=ST.isPunct?getSymPunct():getSym123();
+    if ((deviceMode==='ipad9' || deviceMode==='ipadmini') && curL.ipad9) {
+      d = d.map((r, ri) => {
+        let newRow = [...r];
+        if (ri === 0) {
+          if (newRow[0].startsWith('\\s{spacer')) newRow[0] = '\\s{tab:1.0}';
+          if (newRow[newRow.length - 1].startsWith('\\s{spacer') || newRow[newRow.length - 1].startsWith('\\s{backspace')) newRow[newRow.length - 1] = '\\s{backspace:1.5}';
+        } else if (ri === 1) {
+          if (newRow[0].startsWith('\\s{spacer')) newRow[0] = '\\s{caps:1.1}';
+        }
+        return newRow;
+      });
+    }
     d.forEach(rowData=>{
       const r=R();
       rowData.forEach(c=>r.appendChild(key(parseT(c))));
@@ -659,8 +749,20 @@ function renderKbd(){
     kbd.appendChild(r4);
   } else {
     let rows=ST.isShift?curL.shift:curL.rows;
-    if (deviceMode==='ipad9' && curL.ipad9) {
+    if ((deviceMode==='ipad9' || deviceMode==='ipadmini') && curL.ipad9) {
       rows = ST.isShift ? curL.ipad9.shift : curL.ipad9.rows;
+      if (!ST.isSym && !ST.isPunct) {
+        rows = rows.map((r, ri) => {
+          let newRow = [...r];
+          if (ri === 0) {
+            if (newRow[0].startsWith('\\s{spacer')) newRow[0] = '\\s{tab:1.0}';
+            if (newRow[newRow.length - 1].startsWith('\\s{spacer') || newRow[newRow.length - 1].startsWith('\\s{backspace')) newRow[newRow.length - 1] = '\\s{backspace:1.5}';
+          } else if (ri === 1) {
+            if (newRow[0].startsWith('\\s{spacer')) newRow[0] = '\\s{caps:1.1}';
+          }
+          return newRow;
+        });
+      }
     } else if (deviceMode==='ipad12' && curL.ipad12) {
       rows = ST.isShift ? curL.ipad12.shift : curL.ipad12.rows;
     }
@@ -712,13 +814,14 @@ function doKey(a,el){
   if(a==='__sp'){type(' ');return}
   if(a==='__list'){showList(true);return}
   if(a==='__ret'){type('\n');return}
+  if(a==='__caps'){ST.isCaps=!ST.isCaps;ST.isShift=ST.isCaps;renderKbd();return}
   type(a);
 }
 
 function type(ch){
   const el=document.getElementById('sft');if(!el)return;
   if(ch==='\n'){el.innerHTML+='\u200b<br>';} else {el.appendChild(document.createTextNode(ch));}
-  if(ST.isShift&&ch!==' '){ST.isShift=false;renderKbd()}
+  if(ST.isShift&&!ST.isCaps&&ch!==' '){ST.isShift=false;renderKbd()}
 }
 
 // ── Longpress ────────────────────────────────────────────────────────────────

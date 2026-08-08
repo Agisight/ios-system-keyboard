@@ -101,13 +101,23 @@ def load_yaml(path):
         class Loader(yaml.SafeLoader): pass
         def include_constructor(loader, node):
             include_str = loader.construct_scalar(node).strip()
-            inc_file = include_str.split("#")[0]
+            parts = include_str.split("#")
+            inc_file = parts[0]
             inc_path = base_path.parent / inc_file
             if not inc_path.exists(): return None
             data = load_yaml(inc_path)
-            if isinstance(data, dict) and len(data) == 1:
-                key = next(iter(data))
-                if key in ("keyNames", "longpress", "displayNames"): return data[key]
+            
+            # Resolve path fragments if present (e.g. #iOS#iPad-9in)
+            if len(parts) > 1:
+                for fragment in parts[1:]:
+                    if isinstance(data, dict) and fragment in data:
+                        data = data[fragment]
+                    else:
+                        return None
+            else:
+                if isinstance(data, dict) and len(data) == 1:
+                    key = next(iter(data))
+                    if key in ("keyNames", "longpress", "displayNames"): return data[key]
             return data
         Loader.add_constructor("!include", include_constructor)
         return Loader
@@ -278,7 +288,9 @@ def discover():
             if ipad9_layers:
                 ipad9 = {
                     "rows": parse_rows(ipad9_layers.get("default"), smart_spaces=is_smart),
-                    "shift": parse_rows(ipad9_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad9_layers.get("default"), smart_spaces=is_smart)
+                    "shift": parse_rows(ipad9_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad9_layers.get("default"), smart_spaces=is_smart),
+                    "sym1": parse_rows(ipad9_layers.get("symbols-1"), smart_spaces=is_smart),
+                    "sym2": parse_rows(ipad9_layers.get("symbols-2"), smart_spaces=is_smart)
                 }
             
         ipad12 = None
@@ -287,7 +299,9 @@ def discover():
             if ipad12_layers:
                 ipad12 = {
                     "rows": parse_rows(ipad12_layers.get("default"), smart_spaces=is_smart),
-                    "shift": parse_rows(ipad12_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad12_layers.get("default"), smart_spaces=is_smart)
+                    "shift": parse_rows(ipad12_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad12_layers.get("default"), smart_spaces=is_smart),
+                    "sym1": parse_rows(ipad12_layers.get("symbols-1"), smart_spaces=is_smart),
+                    "sym2": parse_rows(ipad12_layers.get("symbols-2"), smart_spaces=is_smart)
                 }
 
         merged_kn = langs_by_code[code]["keyNames"]
