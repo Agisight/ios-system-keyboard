@@ -157,6 +157,7 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .modal{background:#fff;border-radius:16px;max-width:360px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.35);overflow:hidden;animation:modalUp .25s ease}
+.modal.modal-wide{max-width:940px}
 @keyframes modalUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
 .modal-hdr{padding:18px 20px 12px;display:flex;align-items:center;gap:10px;border-bottom:.5px solid rgba(0,0,0,.08)}
 .modal-hdr svg{flex-shrink:0}
@@ -229,6 +230,119 @@ const DL_ICON=`<svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path
 const TRANSLATE_ICON=`<svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2.5 4h7M4.5 2v2M4.5 4c0 2 1 3.5 2.5 4.5M8.5 4C8.5 6 7.5 7.5 6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14l2.5-6h1L14 14M9 12h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const KEYLAYOUT_BASE='keylayout/';
 
+function buildMacKeyboardSVG(defaultRows, altRows) {
+  if (!defaultRows || defaultRows.length < 4 || !altRows || altRows.length < 4) return '';
+  
+  const keyW = 54, keyH = 54, gap = 6, padX = 16, padY = 16;
+  const chassisW = 896, chassisH = 266;
+  const outer = 8;
+  const svgW = chassisW + outer * 2;
+  const svgH = chassisH + outer * 2;
+  
+  let keysSvg = '';
+  
+  function drawKey(x, y, w, h, main, opt, isFunc) {
+    const fill = isFunc ? 'url(#f-grd)' : 'url(#k-grd)';
+    const textCol = isFunc ? '#8e8e9f' : '#ffffff';
+    const optCol = '#ff9f0a';
+    
+    let labelXml = '';
+    if (isFunc) {
+      let t_x = x + 10;
+      let t_y = y + h/2 + 4;
+      let align = 'start';
+      if (main === 'return' || main === 'delete') {
+        align = 'end';
+        t_x = x + w - 10;
+      }
+      labelXml = `<text x="${t_x}" y="${t_y}" fill="${textCol}" font-size="11" font-weight="500" text-anchor="${align}">${main}</text>`;
+    } else {
+      const m_x = x + 12;
+      const m_y = y + h - 12;
+      labelXml = `<text x="${m_x}" y="${m_y}" fill="${textCol}" font-size="15" font-weight="600">${main.toUpperCase()}</text>`;
+      if (opt && opt !== main) {
+        const o_x = x + w - 10;
+        const o_y = y + 18;
+        let optStr = opt.toUpperCase();
+        if (optStr === '&') optStr = '&amp;';
+        else if (optStr === '<') optStr = '&lt;';
+        else if (optStr === '>') optStr = '&gt;';
+        labelXml += `<text x="${o_x}" y="${o_y}" fill="${optCol}" font-size="10.5" font-weight="bold" text-anchor="end">${optStr}</text>`;
+      }
+    }
+    
+    return `
+      <g>
+        <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="${fill}" stroke="#111116" stroke-width="1.5" filter="url(#k-sh)"/>
+        <rect x="${x+1}" y="${y+1}" width="${w-2}" height="${h-2}" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+        ${labelXml}
+      </g>`;
+  }
+  
+  // Row 1 (Numbers)
+  let cy = padY + outer;
+  let cx = padX + outer;
+  for (let i = 0; i < 13; i++) {
+    keysSvg += drawKey(cx, cy, keyW, keyH, defaultRows[0][i] || '', altRows[0][i] || '', false);
+    cx += keyW + gap;
+  }
+  keysSvg += drawKey(cx, cy, 84, keyH, 'delete', '', true);
+  
+  // Row 2 (QWERTY)
+  cy += keyH + gap;
+  cx = padX + outer;
+  keysSvg += drawKey(cx, cy, 84, keyH, 'tab', '', true);
+  cx += 84 + gap;
+  for (let i = 0; i < 13; i++) {
+    keysSvg += drawKey(cx, cy, keyW, keyH, defaultRows[1][i] || '', altRows[1][i] || '', false);
+    cx += keyW + gap;
+  }
+  
+  // Row 3 (ASDF)
+  cy += keyH + gap;
+  cx = padX + outer;
+  keysSvg += drawKey(cx, cy, 102, keyH, 'caps lock', '', true);
+  cx += 102 + gap;
+  for (let i = 0; i < 11; i++) {
+    keysSvg += drawKey(cx, cy, keyW, keyH, defaultRows[2][i] || '', altRows[2][i] || '', false);
+    cx += keyW + gap;
+  }
+  keysSvg += drawKey(cx, cy, 102, keyH, 'return', '', true);
+  
+  // Row 4 (ZXCV)
+  cy += keyH + gap;
+  cx = padX + outer;
+  keysSvg += drawKey(cx, cy, 134, keyH, 'shift', '', true);
+  cx += 134 + gap;
+  for (let i = 0; i < 10; i++) {
+    keysSvg += drawKey(cx, cy, keyW, keyH, defaultRows[3][i] || '', altRows[3][i] || '', false);
+    cx += keyW + gap;
+  }
+  keysSvg += drawKey(cx, cy, 130, keyH, 'shift', '', true);
+  
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgW} ${svgH}" width="100%" height="auto" style="border-radius:14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #16161a;">
+      <defs>
+        <filter id="k-sh" x="-10%" y="-10%" width="120%" height="120%">
+          <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.5"/>
+        </filter>
+        <linearGradient id="k-grd" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#363643" />
+          <stop offset="100%" stop-color="#282833" />
+        </linearGradient>
+        <linearGradient id="f-grd" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#282833" />
+          <stop offset="100%" stop-color="#1d1d25" />
+        </linearGradient>
+      </defs>
+      <rect x="${outer}" y="${outer}" width="${chassisW}" height="${chassisH}" rx="14" fill="#1b1b22" stroke="#2a2a35" stroke-width="2.5" filter="url(#k-sh)"/>
+      <rect x="${outer+2}" y="${outer+2}" width="${chassisW-4}" height="${chassisH-4}" rx="12" fill="none" stroke="#0e0e12" stroke-width="1.5" opacity="0.8"/>
+      <g>
+        ${keysSvg}
+      </g>
+    </svg>`;
+}
+
 function showMacModal(langName,macosFiles){
   const ov=document.createElement('div');ov.className='modal-overlay';
   ov.onclick=e=>{if(e.target===ov)ov.remove()};
@@ -256,21 +370,34 @@ function showMacModal(langName,macosFiles){
     macosFiles.forEach(f=>{
       dlLinks+=`<a href="${KEYLAYOUT_BASE}${f.file}" download><svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M8 1v8.5M8 9.5L5 6.5M8 9.5l3-3M3 11v2h10v-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${f.name}</span><span class="dl-size">.keylayout</span></a>`;
     });
+    
+    let kbdSvg = '';
+    const firstMac = macosFiles[0];
+    if (firstMac && firstMac.default && firstMac.alt) {
+      kbdSvg = `<div class="modal-kbd-preview" style="margin-bottom:20px">${buildMacKeyboardSVG(firstMac.default, firstMac.alt)}</div>`;
+    }
+    
     bodyContent=`
-      <div class="modal-dl">${dlLinks}</div>
-      <div class="modal-steps">
-        <b>Установка:</b>
-        <ol>
-          <li>Скачайте файл <code>.keylayout</code></li>
-          <li>Скопируйте в <code>~/Library/Keyboard Layouts/</code></li>
-          <li>Перезагрузите Mac или выйдите из сессии</li>
-          <li><b>Системные настройки</b> → Клавиатура → Источники ввода → <b>+</b> → Другие</li>
-        </ol>
-        <b>Или через Терминал:</b><br>
-        <code style="display:block;margin-top:6px;padding:8px;background:#1c1c1e;color:#98c379;border-radius:6px;font-size:11px;line-height:1.6;word-break:break-all">cp ~/Downloads/*.keylayout ~/Library/Keyboard\\ Layouts/</code>
+      ${kbdSvg}
+      <div class="modal-bottom-row" style="display:flex;gap:24px;flex-wrap:wrap">
+        <div style="flex:1;min-width:250px">
+          <h4 style="margin:0 0 10px;font-size:14px;font-weight:600;color:#000">Файлы раскладок для загрузки:</h4>
+          <div class="modal-dl" style="margin-bottom:0">${dlLinks}</div>
+        </div>
+        <div class="modal-steps" style="flex:1.5;min-width:300px">
+          <b>Установка:</b>
+          <ol>
+            <li>Скачайте файл <code>.keylayout</code></li>
+            <li>Скопируйте в <code>~/Library/Keyboard Layouts/</code></li>
+            <li>Перезагрузите Mac или выйдите из сессии</li>
+            <li><b>Системные настройки</b> → Клавиатура → Источники ввода → <b>+</b> → Другие</li>
+          </ol>
+          <b>Или через Терминал:</b><br>
+          <code style="display:block;margin-top:6px;padding:8px;background:#1c1c1e;color:#98c379;border-radius:6px;font-size:11px;line-height:1.6;word-break:break-all">cp ~/Downloads/*.keylayout ~/Library/Keyboard\\ Layouts/</code>
+        </div>
       </div>`;
   }
-  ov.innerHTML=`<div class="modal">
+  ov.innerHTML=`<div class="modal ${!isMobile ? 'modal-wide' : ''}">
     <div class="modal-hdr">
       ${MACOS_ICON.replace('width="14" height="14"','width="24" height="24"')}
       <div class="modal-hdr-text"><h3>${langName}</h3><p>Раскладка для macOS</p></div>

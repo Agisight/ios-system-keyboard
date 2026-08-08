@@ -223,10 +223,25 @@ def discover():
                     else:
                         name = langs_by_code[code]["name"]
                     
-                    langs_by_code[code]["macos"].append({
+                    m_default = None
+                    m_alt = None
+                    try:
+                        m_data = load_yaml(mf)
+                        m_layers = find_layers_deep(m_data.get("macOS") or m_data.get("macos") or m_data)
+                        if m_layers:
+                            m_default = parse_rows(m_layers.get("default"))
+                            m_alt = parse_rows(m_layers.get("alt")) or m_default
+                    except Exception as e:
+                        pass
+                        
+                    entry = {
                         "name": name,
                         "file": f"{clean_stem}.keylayout"
-                    })
+                    }
+                    if m_default and m_alt:
+                        entry["default"] = m_default
+                        entry["alt"] = m_alt
+                    langs_by_code[code]["macos"].append(entry)
         
         kn = data.get("keyNames") or data.get("keynames") or {}
         if isinstance(kn, dict):
