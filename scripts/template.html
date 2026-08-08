@@ -189,6 +189,49 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .cmd-row span{color:#8e8e93;font-size:13px;text-transform:capitalize}
 .cmd-row b{font-weight:500;font-size:16px;color:#000}
 .empty{text-align:center;padding:20px;color:#8e8e93}
+
+/* Device simulation styling */
+.iphone.view-ipad12 { width: 580px !important; }
+.iphone.view-ipad12 .screen { height: 760px !important; }
+.iphone.view-ipad12 .di { display: none !important; }
+.iphone.view-ipad12 .sbar { padding: 14px 26px 6px !important; }
+
+.iphone.view-ipad9 { width: 480px !important; }
+.iphone.view-ipad9 .screen { height: 640px !important; }
+.iphone.view-ipad9 .di { display: none !important; }
+.iphone.view-ipad9 .sbar { padding: 14px 26px 6px !important; }
+
+.view-ipad9 .k, .view-ipad12 .k { height: 52px !important; font-size: 19px !important; }
+.view-ipad9 .lph, .view-ipad12 .lph { font-size: 12px !important; }
+
+.k svg { display: block; margin: auto; pointer-events: none; }
+
+/* Device switcher */
+.dev-switch {
+  background: #e3e3e9;
+  border-radius: 8px;
+  padding: 2px;
+  display: inline-flex;
+  gap: 2px;
+  font-family: var(--font);
+}
+.ds-btn {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  transition: background 0.1s, box-shadow 0.1s;
+  font-family: var(--font);
+}
+.ds-btn.active {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font-weight: 600;
+}
 </style>
 </head>
 <body>
@@ -214,6 +257,7 @@ let ST={isShift:false,isSym:false,isPunct:false};
 let lpTimer=null,lpEl=null,lpPop=null,lpIdx=-1,lpWasShown=false;
 let curL=null,curLang=null;
 let listScrollY=0;
+let deviceMode='phone';
 const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 const SISVG=`<svg width="16" height="11" viewBox="0 0 17 12" fill="none"><rect x="0" y="3" width="3" height="9" rx=".5" fill="#000"/><rect x="4.5" y="2" width="3" height="10" rx=".5" fill="#000"/><rect x="9" y=".5" width="3" height="11.5" rx=".5" fill="#000"/><rect x="13.5" y="0" width="3" height="12" rx=".5" fill="#000" opacity=".3"/></svg><svg width="15" height="11" viewBox="0 0 16 12" fill="none"><path d="M8 2.4C10.2 2.4 12.2 3.3 13.6 4.8L15 3.3C13.2 1.3 10.7 0 8 0S2.8 1.3 1 3.3L2.4 4.8C3.8 3.3 5.8 2.4 8 2.4Z" fill="#000"/><path d="M8 5c1.5 0 2.8.6 3.8 1.6l1.4-1.5C11.8 3.8 10 3 8 3S4.2 3.8 2.8 5.1L4.2 6.6C5.2 5.6 6.5 5 8 5Z" fill="#000"/><circle cx="8" cy="10" r="2" fill="#000"/></svg><svg width="25" height="11" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3.5" stroke="#000" stroke-opacity=".35"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#000"/><path d="M23 4.5v3c.8-.3 1.5-1 1.5-1.5s-.7-1.2-1.5-1.5Z" fill="#000" opacity=".4"/></svg>`;
@@ -229,6 +273,9 @@ const MACOS_ICON=`<svg viewBox="0 0 16 16" fill="none" width="14" height="14"><p
 const DL_ICON=`<svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M8 1v8.5M8 9.5L5 6.5M8 9.5l3-3M3 11v2h10v-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const TRANSLATE_ICON=`<svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2.5 4h7M4.5 2v2M4.5 4c0 2 1 3.5 2.5 4.5M8.5 4C8.5 6 7.5 7.5 6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14l2.5-6h1L14 14M9 12h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const KEYLAYOUT_BASE='keylayout/';
+const GLOBE_SVG = `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" width="20" height="20" style="display:block;margin:auto"><circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2a15.3 15.3 0 0 1 4 8 15.3 15.3 0 0 1-4 8 15.3 15.3 0 0 1-4-8 15.3 15.3 0 0 1 4-8z"/></svg>`;
+const MIC_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="display:block;margin:auto"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>`;
+const DISMISS_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" style="display:block;margin:auto"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M18 12h.01M10 12h4M10 20l2 2 2-2"/></svg>`;
 
 function buildMacKeyboardSVG(defaultRows, altRows) {
   if (!defaultRows || defaultRows.length < 4 || !altRows || altRows.length < 4) return '';
@@ -435,6 +482,11 @@ function showCommandModal(langName,keyNames){
 
 // ── List screen ──────────────────────────────────────────────────────────────
 function showList(anim){
+  deviceMode = 'phone';
+  const iph = document.querySelector('.iphone');
+  if (iph) {
+    iph.classList.remove('view-ipad9', 'view-ipad12');
+  }
   const sc=document.getElementById('screen');
   const cls=anim?'screen-inner anim-back':'screen-inner';
   let html=`<div class="${cls}">`;
@@ -484,10 +536,30 @@ function openKbd(langIdx,layIdx,secIdx){
   showKbd(sec.color);
 }
 
+function setDevice(mode) {
+  deviceMode = mode;
+  const iph = document.querySelector('.iphone');
+  if (iph) {
+    iph.classList.remove('view-ipad9', 'view-ipad12');
+    if (mode !== 'phone') iph.classList.add('view-' + mode);
+  }
+  showKbd();
+}
+
 // ── Keyboard screen ──────────────────────────────────────────────────────────
 function showKbd(color){
   const sc=document.getElementById('screen');
   const backChev=`<svg viewBox="0 0 9 15" fill="none" width="9" height="15"><path d="M7.5 1L1 7.5L7.5 14" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  
+  let switcherHtml = '';
+  if (curL.ipad9 || curL.ipad12) {
+    switcherHtml = `<div class="dev-switch">
+      <button class="ds-btn ${deviceMode==='phone'?'active':''}" onclick="event.stopPropagation();setDevice('phone')">iPhone</button>
+      ${curL.ipad9 ? `<button class="ds-btn ${deviceMode==='ipad9'?'active':''}" onclick="event.stopPropagation();setDevice('ipad9')">iPad 9.7"</button>` : ''}
+      ${curL.ipad12 ? `<button class="ds-btn ${deviceMode==='ipad12'?'active':''}" onclick="event.stopPropagation();setDevice('ipad12')">iPad 12.9"</button>` : ''}
+    </div>`;
+  }
+  
   sc.innerHTML=`<div class="screen-inner anim-enter">
     ${sbar()}
     <div class="navbar">
@@ -495,8 +567,11 @@ function showKbd(color){
       <div class="nb-title">${curLang.name}</div>
     </div>
     <div class="kbd-view">
-      <div class="kv-field">
-        <div class="kv-label">${curL.label}</div>
+      <div class="kv-field" style="display:flex;flex-direction:column;justify-content:space-between">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div class="kv-label">${curL.label}</div>
+          ${switcherHtml}
+        </div>
         <div class="kv-text" id="sft"></div>
       </div>
       <div class="kbd" id="kbd"></div>
@@ -534,7 +609,11 @@ function renderKbd(){
     if(item.type==='spc'){
       k.style.visibility='hidden';k.style.pointerEvents='none';k.style.boxShadow='none';k.style.background='transparent';
     } else {
-      k.textContent=item.lbl;
+      if (item.lbl.startsWith('<svg')) {
+        k.innerHTML = item.lbl;
+      } else {
+        k.textContent = item.lbl;
+      }
       if(item.type!=='key') k.classList.add('sp');
       if(item.type==='sh' && ST.isShift) k.classList.add('kon');
     }
@@ -551,7 +630,7 @@ function renderKbd(){
         k.addEventListener('touchstart',e=>{e.preventDefault();const t=e.touches[0];startLp(t.clientX,t.clientY,k,item.act,opts)},{passive:false});
       }
     } else {
-      const acts={sh:'__sh',del:'__del',ret:'__ret',s123:'__pct'};
+      const acts={sh:'__sh',del:'__del',ret:'__ret',s123:'__pct',sp:'__sp'};
       if(acts[item.type]) k.addEventListener('click',e=>{e.stopPropagation();doKey(acts[item.type],k)});
     }
     return k;
@@ -565,12 +644,26 @@ function renderKbd(){
       kbd.appendChild(r);
     });
     const r4=R();
-    r4.appendChild(key({type:'key',lbl:(curL.abc||'АБВ'),act:'__abc',w:1.4}));
-    r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:4.5}));
-    r4.appendChild(key({type:'ret',lbl:curL.ret,w:1.4}));
+    if (deviceMode !== 'phone') {
+      r4.appendChild(key({type:'sp',lbl:GLOBE_SVG,act:'__list',w:1.25}));
+      r4.appendChild(key({type:'key',lbl:(curL.abc||'АБВ'),act:'__abc',w:1.25}));
+      r4.appendChild(key({type:'sp',lbl:MIC_SVG,act:'',w:1.25}));
+      r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:7}));
+      r4.appendChild(key({type:'key',lbl:(curL.abc||'АБВ'),act:'__abc',w:1.25}));
+      r4.appendChild(key({type:'sp',lbl:DISMISS_SVG,act:'__list',w:1.25}));
+    } else {
+      r4.appendChild(key({type:'key',lbl:(curL.abc||'АБВ'),act:'__abc',w:1.4}));
+      r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:4.5}));
+      r4.appendChild(key({type:'ret',lbl:curL.ret,w:1.4}));
+    }
     kbd.appendChild(r4);
   } else {
-    const rows=ST.isShift?curL.shift:curL.rows;
+    let rows=ST.isShift?curL.shift:curL.rows;
+    if (deviceMode==='ipad9' && curL.ipad9) {
+      rows = ST.isShift ? curL.ipad9.shift : curL.ipad9.rows;
+    } else if (deviceMode==='ipad12' && curL.ipad12) {
+      rows = ST.isShift ? curL.ipad12.shift : curL.ipad12.rows;
+    }
     // Calculate total flex width of each row to find max
     const rowInfos=rows.map(r=>r.map(parseT));
     const rowWidths=rowInfos.map(ri=>ri.reduce((a,b)=>a+(b.w||1),0));
@@ -582,9 +675,18 @@ function renderKbd(){
       kbd.appendChild(r);
     });
     const r4=R();
-    r4.appendChild(key({type:'key',lbl:'123',act:'__sym',w:1.4}));
-    r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:4.5}));
-    r4.appendChild(key({type:'ret',lbl:curL.ret,w:1.4}));
+    if (deviceMode !== 'phone') {
+      r4.appendChild(key({type:'sp',lbl:GLOBE_SVG,act:'__list',w:1.25}));
+      r4.appendChild(key({type:'key',lbl:'123',act:'__sym',w:1.25}));
+      r4.appendChild(key({type:'sp',lbl:MIC_SVG,act:'',w:1.25}));
+      r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:7}));
+      r4.appendChild(key({type:'key',lbl:'123',act:'__sym',w:1.25}));
+      r4.appendChild(key({type:'sp',lbl:DISMISS_SVG,act:'__list',w:1.25}));
+    } else {
+      r4.appendChild(key({type:'key',lbl:'123',act:'__sym',w:1.4}));
+      r4.appendChild(key({type:'key',lbl:curL.space,act:'__sp',w:4.5}));
+      r4.appendChild(key({type:'ret',lbl:curL.ret,w:1.4}));
+    }
     kbd.appendChild(r4);
   }
 }
@@ -608,6 +710,7 @@ function doKey(a,el){
   if(a==='__pct'){ST.isSym=true;ST.isPunct=!ST.isPunct;renderKbd();return}
   if(a==='__abc'){ST.isSym=false;ST.isPunct=false;renderKbd();return}
   if(a==='__sp'){type(' ');return}
+  if(a==='__list'){showList(true);return}
   if(a==='__ret'){type('\n');return}
   type(a);
 }

@@ -267,6 +267,29 @@ def discover():
         sym1 = parse_rows(layers.get("symbols-1"), smart_spaces=is_smart)
         sym2 = parse_rows(layers.get("symbols-2"), smart_spaces=is_smart)
 
+        # Parse iPad layouts if present
+        ios_section = data.get("iOS") or data.get("ios") or data
+        ipad9_layer = ios_section.get("iPad-9in")
+        ipad12_layer = ios_section.get("iPad-12in")
+        
+        ipad9 = None
+        if ipad9_layer:
+            ipad9_layers = find_layers_deep(ipad9_layer)
+            if ipad9_layers:
+                ipad9 = {
+                    "rows": parse_rows(ipad9_layers.get("default"), smart_spaces=is_smart),
+                    "shift": parse_rows(ipad9_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad9_layers.get("default"), smart_spaces=is_smart)
+                }
+            
+        ipad12 = None
+        if ipad12_layer:
+            ipad12_layers = find_layers_deep(ipad12_layer)
+            if ipad12_layers:
+                ipad12 = {
+                    "rows": parse_rows(ipad12_layers.get("default"), smart_spaces=is_smart),
+                    "shift": parse_rows(ipad12_layers.get("shift"), smart_spaces=is_smart) or parse_rows(ipad12_layers.get("default"), smart_spaces=is_smart)
+                }
+
         merged_kn = langs_by_code[code]["keyNames"]
         space = merged_kn.get("space") or "Space"
         ret = merged_kn.get("return") or "Return"
@@ -283,6 +306,8 @@ def discover():
         }
         if sym1: layout_entry["sym1"] = sym1
         if sym2: layout_entry["sym2"] = sym2
+        if ipad9: layout_entry["ipad9"] = ipad9
+        if ipad12: layout_entry["ipad12"] = ipad12
 
         if lid not in {l["id"] for l in langs_by_code[code]["layouts"]}:
             langs_by_code[code]["layouts"].append(layout_entry)
