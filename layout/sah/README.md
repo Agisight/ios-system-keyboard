@@ -16,7 +16,7 @@ For iPad keyboard versions there is only 1 version, because there are enough spa
 
 ## Sakha macOS
 
-Keyboard uses swapping/replacing less frequent Russian letters (Ф, Ц, Щ, Ж, Ъ) to native Sakha letters (Ө, Ү, Ҥ, Һ, Ҕ), making less frequent letters accessible via **Option** (aka **ALT**).
+Keyboard uses swapping/replacing less frequent Russian letters (Ф, Ц, Щ, Ж, Ё) to native Sakha letters (Ө, Ү, Ҥ, Һ, Ҕ), making less frequent letters accessible via **Option** (aka **ALT**).
 
 ## Sakha keyNames
 
