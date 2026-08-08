@@ -1,0 +1,383 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 936 306" width="100%" height="auto" style="border-radius:14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #16161a;">
+  <defs>
+    <!-- Key shadow and bevels -->
+    <filter id="key-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <linearGradient id="key-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#363643" />
+      <stop offset="100%" stop-color="#282833" />
+    </linearGradient>
+    <linearGradient id="func-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#282833" />
+      <stop offset="100%" stop-color="#1d1d25" />
+    </linearGradient>
+  </defs>
+
+  <!-- Keyboard Chassis -->
+  <rect x="20" y="20" width="896" height="266" rx="14" fill="#1b1b22" stroke="#2a2a35" stroke-width="2.5" filter="url(#key-shadow)"/>
+  <rect x="22" y="22" width="892" height="262" rx="12" fill="none" stroke="#0e0e12" stroke-width="1.5" opacity="0.8"/>
+
+  <g id="keyboard-keys">
+    <!-- Key ] -->
+    <g>
+      <rect x="36" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="37" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="48" y="78" fill="#ffffff" font-size="15" font-weight="600">]</text>
+    </g>
+    <!-- Key 1 -->
+    <g>
+      <rect x="96" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="97" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="108" y="78" fill="#ffffff" font-size="15" font-weight="600">1</text>
+      <text x="140" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">!</text>
+    </g>
+    <!-- Key 2 -->
+    <g>
+      <rect x="156" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="157" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="168" y="78" fill="#ffffff" font-size="15" font-weight="600">2</text>
+      <text x="200" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">@</text>
+    </g>
+    <!-- Key 3 -->
+    <g>
+      <rect x="216" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="217" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="228" y="78" fill="#ffffff" font-size="15" font-weight="600">3</text>
+      <text x="260" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">#</text>
+    </g>
+    <!-- Key 4 -->
+    <g>
+      <rect x="276" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="277" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="288" y="78" fill="#ffffff" font-size="15" font-weight="600">4</text>
+      <text x="320" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">$</text>
+    </g>
+    <!-- Key 5 -->
+    <g>
+      <rect x="336" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="337" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="348" y="78" fill="#ffffff" font-size="15" font-weight="600">5</text>
+      <text x="380" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">%</text>
+    </g>
+    <!-- Key 6 -->
+    <g>
+      <rect x="396" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="397" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="408" y="78" fill="#ffffff" font-size="15" font-weight="600">6</text>
+      <text x="440" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">^</text>
+    </g>
+    <!-- Key 7 -->
+    <g>
+      <rect x="456" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="457" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="468" y="78" fill="#ffffff" font-size="15" font-weight="600">7</text>
+      <text x="500" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">&amp;</text>
+    </g>
+    <!-- Key 8 -->
+    <g>
+      <rect x="516" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="517" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="528" y="78" fill="#ffffff" font-size="15" font-weight="600">8</text>
+      <text x="560" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">*</text>
+    </g>
+    <!-- Key 9 -->
+    <g>
+      <rect x="576" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="577" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="588" y="78" fill="#ffffff" font-size="15" font-weight="600">9</text>
+      <text x="620" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">{</text>
+    </g>
+    <!-- Key 0 -->
+    <g>
+      <rect x="636" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="637" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="648" y="78" fill="#ffffff" font-size="15" font-weight="600">0</text>
+      <text x="680" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">}</text>
+    </g>
+    <!-- Key - -->
+    <g>
+      <rect x="696" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="697" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="708" y="78" fill="#ffffff" font-size="15" font-weight="600">-</text>
+      <text x="740" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">–</text>
+    </g>
+    <!-- Key = -->
+    <g>
+      <rect x="756" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="757" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="768" y="78" fill="#ffffff" font-size="15" font-weight="600">=</text>
+      <text x="800" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">»</text>
+    </g>
+    <!-- Key delete -->
+    <g>
+      <rect x="816" y="36" width="84" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="817" y="37" width="82" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="890" y="67.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="end">delete</text>
+    </g>
+    <!-- Key tab -->
+    <g>
+      <rect x="36" y="96" width="84" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="37" y="97" width="82" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="46" y="127.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="start">tab</text>
+    </g>
+    <!-- Key й -->
+    <g>
+      <rect x="126" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="127" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="138" y="138" fill="#ffffff" font-size="15" font-weight="600">Й</text>
+      <text x="170" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ј</text>
+    </g>
+    <!-- Key ү -->
+    <g>
+      <rect x="186" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="187" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="198" y="138" fill="#ffffff" font-size="15" font-weight="600">Ү</text>
+      <text x="230" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ц</text>
+    </g>
+    <!-- Key у -->
+    <g>
+      <rect x="246" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="247" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="258" y="138" fill="#ffffff" font-size="15" font-weight="600">У</text>
+      <text x="290" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ќ</text>
+    </g>
+    <!-- Key к -->
+    <g>
+      <rect x="306" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="307" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="318" y="138" fill="#ffffff" font-size="15" font-weight="600">К</text>
+      <text x="350" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">®</text>
+    </g>
+    <!-- Key е -->
+    <g>
+      <rect x="366" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="367" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="378" y="138" fill="#ffffff" font-size="15" font-weight="600">Е</text>
+      <text x="410" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">†</text>
+    </g>
+    <!-- Key н -->
+    <g>
+      <rect x="426" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="427" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="438" y="138" fill="#ffffff" font-size="15" font-weight="600">Н</text>
+      <text x="470" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Њ</text>
+    </g>
+    <!-- Key г -->
+    <g>
+      <rect x="486" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="487" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="498" y="138" fill="#ffffff" font-size="15" font-weight="600">Г</text>
+      <text x="530" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ѓ</text>
+    </g>
+    <!-- Key ш -->
+    <g>
+      <rect x="546" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="547" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="558" y="138" fill="#ffffff" font-size="15" font-weight="600">Ш</text>
+      <text x="590" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ѕ</text>
+    </g>
+    <!-- Key ҥ -->
+    <g>
+      <rect x="606" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="607" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="618" y="138" fill="#ffffff" font-size="15" font-weight="600">Ҥ</text>
+      <text x="650" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Щ</text>
+    </g>
+    <!-- Key з -->
+    <g>
+      <rect x="666" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="667" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="678" y="138" fill="#ffffff" font-size="15" font-weight="600">З</text>
+      <text x="710" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">'</text>
+    </g>
+    <!-- Key х -->
+    <g>
+      <rect x="726" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="727" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="738" y="138" fill="#ffffff" font-size="15" font-weight="600">Х</text>
+      <text x="770" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">"</text>
+    </g>
+    <!-- Key ъ -->
+    <g>
+      <rect x="786" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="787" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="798" y="138" fill="#ffffff" font-size="15" font-weight="600">Ъ</text>
+    </g>
+    <!-- Key ҕ -->
+    <g>
+      <rect x="846" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="847" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="858" y="138" fill="#ffffff" font-size="15" font-weight="600">Ҕ</text>
+      <text x="890" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ё</text>
+    </g>
+    <!-- Key caps lock -->
+    <g>
+      <rect x="36" y="156" width="102" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="37" y="157" width="100" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="46" y="187.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="start">caps lock</text>
+    </g>
+    <!-- Key ө -->
+    <g>
+      <rect x="144" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="145" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="156" y="198" fill="#ffffff" font-size="15" font-weight="600">Ө</text>
+      <text x="188" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ф</text>
+    </g>
+    <!-- Key ы -->
+    <g>
+      <rect x="204" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="205" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="216" y="198" fill="#ffffff" font-size="15" font-weight="600">Ы</text>
+    </g>
+    <!-- Key в -->
+    <g>
+      <rect x="264" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="265" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="276" y="198" fill="#ffffff" font-size="15" font-weight="600">В</text>
+      <text x="308" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ћ</text>
+    </g>
+    <!-- Key а -->
+    <g>
+      <rect x="324" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="325" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="336" y="198" fill="#ffffff" font-size="15" font-weight="600">А</text>
+      <text x="368" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">÷</text>
+    </g>
+    <!-- Key п -->
+    <g>
+      <rect x="384" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="385" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="396" y="198" fill="#ffffff" font-size="15" font-weight="600">П</text>
+      <text x="428" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">©</text>
+    </g>
+    <!-- Key р -->
+    <g>
+      <rect x="444" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="445" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="456" y="198" fill="#ffffff" font-size="15" font-weight="600">Р</text>
+      <text x="488" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">₽</text>
+    </g>
+    <!-- Key о -->
+    <g>
+      <rect x="504" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="505" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="516" y="198" fill="#ffffff" font-size="15" font-weight="600">О</text>
+      <text x="548" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">°</text>
+    </g>
+    <!-- Key л -->
+    <g>
+      <rect x="564" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="565" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="576" y="198" fill="#ffffff" font-size="15" font-weight="600">Л</text>
+      <text x="608" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Љ</text>
+    </g>
+    <!-- Key д -->
+    <g>
+      <rect x="624" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="625" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="636" y="198" fill="#ffffff" font-size="15" font-weight="600">Д</text>
+      <text x="668" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">…</text>
+    </g>
+    <!-- Key һ -->
+    <g>
+      <rect x="684" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="685" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="696" y="198" fill="#ffffff" font-size="15" font-weight="600">Һ</text>
+      <text x="728" y="174" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ж</text>
+    </g>
+    <!-- Key э -->
+    <g>
+      <rect x="744" y="156" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="745" y="157" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="756" y="198" fill="#ffffff" font-size="15" font-weight="600">Э</text>
+    </g>
+    <!-- Key return -->
+    <g>
+      <rect x="804" y="156" width="102" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="805" y="157" width="100" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="896" y="187.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="end">return</text>
+    </g>
+    <!-- Key shift -->
+    <g>
+      <rect x="36" y="216" width="134" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="37" y="217" width="132" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="46" y="247.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="start">shift</text>
+    </g>
+    <!-- Key я -->
+    <g>
+      <rect x="176" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="177" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="188" y="258" fill="#ffffff" font-size="15" font-weight="600">Я</text>
+      <text x="220" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ђ</text>
+    </g>
+    <!-- Key ч -->
+    <g>
+      <rect x="236" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="237" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="248" y="258" fill="#ffffff" font-size="15" font-weight="600">Ч</text>
+      <text x="280" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">≈</text>
+    </g>
+    <!-- Key с -->
+    <g>
+      <rect x="296" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="297" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="308" y="258" fill="#ffffff" font-size="15" font-weight="600">С</text>
+      <text x="340" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">≠</text>
+    </g>
+    <!-- Key м -->
+    <g>
+      <rect x="356" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="357" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="368" y="258" fill="#ffffff" font-size="15" font-weight="600">М</text>
+      <text x="400" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Μ</text>
+    </g>
+    <!-- Key и -->
+    <g>
+      <rect x="416" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="417" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="428" y="258" fill="#ffffff" font-size="15" font-weight="600">И</text>
+    </g>
+    <!-- Key т -->
+    <g>
+      <rect x="476" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="477" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="488" y="258" fill="#ffffff" font-size="15" font-weight="600">Т</text>
+      <text x="520" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">™</text>
+    </g>
+    <!-- Key ь -->
+    <g>
+      <rect x="536" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="537" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="548" y="258" fill="#ffffff" font-size="15" font-weight="600">Ь</text>
+      <text x="580" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">~</text>
+    </g>
+    <!-- Key б -->
+    <g>
+      <rect x="596" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="597" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="608" y="258" fill="#ffffff" font-size="15" font-weight="600">Б</text>
+      <text x="640" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">≤</text>
+    </g>
+    <!-- Key ю -->
+    <g>
+      <rect x="656" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="657" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="668" y="258" fill="#ffffff" font-size="15" font-weight="600">Ю</text>
+      <text x="700" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">≥</text>
+    </g>
+    <!-- Key / -->
+    <g>
+      <rect x="716" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="717" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="728" y="258" fill="#ffffff" font-size="15" font-weight="600">/</text>
+      <text x="760" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">"</text>
+    </g>
+    <!-- Key shift -->
+    <g>
+      <rect x="776" y="216" width="130" height="54" rx="6" fill="url(#func-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
+      <rect x="777" y="217" width="128" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
+      <text x="786" y="247.0" fill="#8e8e9f" font-size="11" font-weight="500" text-anchor="start">shift</text>
+    </g>
+  </g>
+</svg>

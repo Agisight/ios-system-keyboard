@@ -18,6 +18,8 @@ For iPad keyboard versions there is only 1 version, because there are enough spa
 
 Keyboard uses swapping/replacing less frequent Russian letters (Ф, Ц, Щ, Ж, Ё) to native Sakha letters (Ө, Ү, Ҥ, Һ, Ҕ), making less frequent letters accessible via **Option** (aka **ALT**).
 
+![macOS Layout Preview](./sah-macos-preview.svg)
+
 ## Sakha keyNames
 
 I have translated this using the most common phrases and natural, intuitive commands to provide a truly native and comfortable user experience for Sakha speakers.
