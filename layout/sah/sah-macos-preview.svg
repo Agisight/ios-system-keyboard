@@ -65,14 +65,14 @@
       <rect x="396" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
       <rect x="397" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
       <text x="408" y="78" fill="#ffffff" font-size="15" font-weight="600">6</text>
-      <text x="440" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">^</text>
+      <text x="440" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">/</text>
     </g>
     <!-- Key 7 -->
     <g>
       <rect x="456" y="36" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
       <rect x="457" y="37" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
       <text x="468" y="78" fill="#ffffff" font-size="15" font-weight="600">7</text>
-      <text x="500" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">&amp;</text>
+      <text x="500" y="54" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">?</text>
     </g>
     <!-- Key 8 -->
     <g>
@@ -198,18 +198,18 @@
       <text x="738" y="138" fill="#ffffff" font-size="15" font-weight="600">Х</text>
       <text x="770" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">"</text>
     </g>
-    <!-- Key ъ -->
+    <!-- Key ҕ -->
     <g>
       <rect x="786" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
       <rect x="787" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
-      <text x="798" y="138" fill="#ffffff" font-size="15" font-weight="600">Ъ</text>
+      <text x="798" y="138" fill="#ffffff" font-size="15" font-weight="600">Ҕ</text>
+      <text x="830" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ъ</text>
     </g>
-    <!-- Key ҕ -->
+    <!-- Key ё -->
     <g>
       <rect x="846" y="96" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
       <rect x="847" y="97" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
-      <text x="858" y="138" fill="#ffffff" font-size="15" font-weight="600">Ҕ</text>
-      <text x="890" y="114" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">Ё</text>
+      <text x="858" y="138" fill="#ffffff" font-size="15" font-weight="600">Ё</text>
     </g>
     <!-- Key caps lock -->
     <g>
@@ -366,12 +366,12 @@
       <text x="668" y="258" fill="#ffffff" font-size="15" font-weight="600">Ю</text>
       <text x="700" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">≥</text>
     </g>
-    <!-- Key / -->
+    <!-- Key , -->
     <g>
       <rect x="716" y="216" width="54" height="54" rx="6" fill="url(#key-grad)" stroke="#111116" stroke-width="1.5" filter="url(#key-shadow)"/>
       <rect x="717" y="217" width="52" height="52" rx="5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
-      <text x="728" y="258" fill="#ffffff" font-size="15" font-weight="600">/</text>
-      <text x="760" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">"</text>
+      <text x="728" y="258" fill="#ffffff" font-size="15" font-weight="600">,</text>
+      <text x="760" y="234" fill="#ff9f0a" font-size="10.5" font-weight="bold" text-anchor="end">“</text>
     </g>
     <!-- Key shift -->
     <g>
