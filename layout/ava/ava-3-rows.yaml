@@ -86,7 +86,7 @@ iOS:
 deadKeys:
   alt: ['¯', '¨', '´']
 
-longpress: !include ava-longpress.yaml
+longpress: !include ava-3-rows-longpress.yaml
 
 keyNames:
   space: Гьоркьобакӏ

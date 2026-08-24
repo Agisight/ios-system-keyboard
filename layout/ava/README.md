@@ -1,45 +1,60 @@
-# Avar (ava) native iOS/macOS keyboards
+# Avar Keyboard Layouts for iOS
 
-## Avar iOS
+Three Avar keyboard layouts are provided:
 
-Two Avar keyboard layouts are provided:
- * ava-3-rows (default)
- * ava-4-rows
+* **ava-4-rows** — new 4-row layout, primary option
+* **ava-3-rows** — 3-row layout, primary fallback option
+* **ava-4-rows-legacy** — previous 4-row layout, additional fallback option
 
-These layouts support different typing preferences:
- * The 3-row layout is more compact and closely follows the geometry of the standard Russian keyboard.
- * The 4-row layout places all Avar letters directly on the primary layer without letter replacement.
+These layouts support different implementation options.
 
-### Long-press
+The new 4-row layout is the primary and preferred option. It is intended to be implemented first. It places all Avar letters directly on the primary layer without letter replacement.
+
+If the new 4-row layout cannot be implemented due to technical limitations, key size, keyboard geometry, or other platform constraints, the 3-row layout is used as the primary fallback option.
+
+If the 3-row layout has already been implemented and the new 4-row layout is not possible, the previous 4-row layout may be added as an additional alternative if it can be implemented technically.
+
+The preferred implementation order is therefore:
+1. new 4-row layout;
+2. 3-row layout;
+3. previous 4-row layout — only as an additional alternative after the 3-row layout has been implemented.
+
+Depending on technical limitations, the following combinations may be available:
+* new 4-row + 3-row;
+* 3-row + previous 4-row;
+* 3-row only.
+
+## Long-press
 
 Long-press is used to access:
- * stress marks
- * secondary symbols
+* stress marks
+* secondary symbols
 
-### iPhone Versions
+## iPhone Versions
 
-The layouts are provided in the following files:
- * ava-3-rows.yaml
- * ava-4-rows.yaml
+The following three layouts are available for iPhone:
+* new 4-row layout
+* 3-row layout
+* previous 4-row layout
 
-### iPad Versions
+Their priority and implementation order follow the rules described above.
 
-Two layouts are available for iPad:
- * 3-row layout
- * 4-row layout
+## iPad Versions
 
-The 3-row layout is recommended as the default, as it is closer to the geometry of the standard Russian keyboard and provides a more familiar typing experience.
+The same three layouts are available for iPad:
+* new 4-row layout
+* 3-row layout
+* previous 4-row layout
+
+Their priority and implementation order are the same as for iPhone.
 
 ## Avar macOS
 
-Avar-specific letters (including ӏ) – 43 – are placed directly on the primary layer using standard ANSI keyboard geometry.
+Avar-specific letters (including ӏ) — 33 letters — are placed directly on the primary layer using standard ANSI keyboard geometry.
 
 No letter replacement is used.
 
 Stress marks are available via dead keys.
-
-The Option (ALT) layer contains extended system symbols, similar to other macOS Cyrillic layouts.
-
 
 ## Avar keyNames
 
@@ -48,20 +63,19 @@ Key names are translated into Avar using natural interface phrasing.
 ### Stress marks
 
 Stress marks (combining acute accent U+0301) are optional and are primarily used for:
- * educational purposes
- * disambiguation
+* educational purposes
+* disambiguation
 
 They should be ignored during:
- * autocorrection
- * search
- * tokenization
- * frequency analysis
+* autocorrection
+* search
+* tokenization
+* frequency analysis
 
-#### Recommended preprocessing:
+### Recommended preprocessing
 
 For linguistic processing (such as search, tokenization, or frequency analysis), it is recommended to:
- 1. apply Unicode NFD normalization
- 2. remove combining diacritical marks
+1. apply Unicode NFD normalization
+2. remove combining diacritical marks
 
 This ensures that words are processed identically regardless of whether stress marks are present.
-
