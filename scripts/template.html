@@ -116,8 +116,9 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 .kbd-view{flex:1;display:flex;flex-direction:column;background:#fff;overflow:hidden}
 .kv-field{flex:1;padding:14px 18px 8px;overflow:hidden}
 .kv-label{font-size:13px;color:#8e8e93;margin-bottom:4px}
-.kv-text{font-size:17px;color:#000;line-height:1.4;word-break:break-all;min-height:24px}
-.kv-text::after{content:'|';animation:blink 1s step-end infinite;color:var(--accent)}
+.kv-text{font-size:17px;color:#000;line-height:1.4;word-break:break-all;min-height:24px;unicode-bidi:plaintext}
+.kv-text.rtl{direction:rtl;text-align:right}
+.kv-text::after{content:'|';animation:blink 1s step-end infinite;color:var(--accent);display:inline-block;margin-right:2px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 
 /* keyboard */
@@ -615,6 +616,11 @@ function setDevice(mode) {
   showKbd();
 }
 
+function isRtlLayout(lay){
+  if(!lay||!lay.rows) return false;
+  return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(JSON.stringify(lay.rows));
+}
+
 // ── Keyboard screen ──────────────────────────────────────────────────────────
 function showKbd(color){
   const sc=document.getElementById('screen');
@@ -634,6 +640,7 @@ function showKbd(color){
     }
   }
   
+  const rtlCls = isRtlLayout(curL) ? ' rtl' : '';
   sc.innerHTML=`<div class="screen-inner">
     ${sbar()}
     <div class="navbar">
@@ -645,7 +652,7 @@ function showKbd(color){
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
           <div class="kv-label">${curL.label}</div>
         </div>
-        <div class="kv-text" id="sft"></div>
+        <div class="kv-text${rtlCls}" id="sft"></div>
       </div>
       <div class="kbd" id="kbd"></div>
       <div class="home-ind"><div></div></div>
