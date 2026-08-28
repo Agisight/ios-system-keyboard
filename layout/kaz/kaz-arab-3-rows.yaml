@@ -1,0 +1,34 @@
+displayNames:
+  en: Kazakh (Arabic)
+  ru: Казахский (арабская письменность)
+  kaz: قازاقشا (تٶتە)
+
+label: '3 ряда (арабская)'
+
+ABC: 'ABC'
+abc: 'abc'
+
+iOS:
+  primary:
+    layers:
+      default: |
+        ق ۋ ە ر ت ي ۇ ى و پ
+        ا س د ء گ ح ج ك ل
+        \s{shift} ز ش ع ڭ ب ن م \s{backspace}
+
+      shift: |
+        ق ۋ ە ر ت ي ۇ ى و پ
+        ا س د ف گ ھ ج ك ل
+        \s{shift} ز ش چ ۆ ب ن م \s{backspace}
+
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0
+        - / : ؛ ( ) ₸ & @ "
+        \s{shiftSymbols} \s{spacer:0.25} . ، ؟ ! ' \s{spacer:0.25} \s{backspace}
+
+      symbols-2: |
+        [ ] { } # % ^ * + =
+        _ \ | ~ < > $ € ¥ •
+        \s{shiftSymbols} \s{spacer:0.25} . ، ؟ ! ' \s{spacer:0.25} \s{backspace}
+
+longpress: !include kaz-arab-longpress.yaml
