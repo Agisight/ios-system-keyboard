@@ -2,7 +2,7 @@
 
 ## Status
 
-`layout/kaz/` currently contains **Kazakh in the Arabic script (Töte jazu / Töte jazu) only**.
+`layout/kaz/` currently contains **Kazakh in the Arabic script (Töte jazu / төте жазу) only**.
 
 Files:
 
@@ -53,10 +53,9 @@ Other implementation details:
 The implementation also received a **private technical review from a keyboard engineer at a major technology company**.
 
 ## Licensing
+This repository is MIT-licensed.
 
 The Keyman `kazakh_arabic` keyboard is licensed under the **MIT License**:
 
 - Copyright © 2025–2026 Murat Karibay
 - https://github.com/keymanapp/keyboards/blob/master/release/k/kazakh_arabic/LICENSE.md
-
-This repository is also MIT-licensed.
