@@ -15,11 +15,11 @@
 # backslash / vertical bar so Z remains on the physical Z key.
 
 displayNames:
-  en: Kazakh Latin (PC experimental)
-  ru: Казахский (латиница, PC экспериментальная)
-  kaz: Қазақша (латын, PC эксперименттік)
+  en: Kazakh Latin (experimental)
+  ru: Казахский (латиница, экспериментальная)
+  kaz: Қазақша (латын, эксперименттік)
 
-label: 'PC experimental'
+label: 'Experimental'
 separateMacOS: true
 
 decimal: ','
