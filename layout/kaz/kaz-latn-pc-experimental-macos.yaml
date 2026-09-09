@@ -1,0 +1,83 @@
+# Experimental desktop/PC layout for Kazakh Latin.
+#
+# Base letter placement follows the public QWERTY keyboard scheme shown in
+# materials from the 2021 Kazakh Latin alphabet reform discussion:
+# https://primeminister.kz/ru/news/a-mamin-provel-zasedanie-nackomissii-po-perevodu-alfavita-kazahskogo-yazyka-na-latinskuyu-grafiku-280497
+#
+# Experimental: not a finalized or standardized production layout.
+#
+# Kazakh-specific casing used here:
+#   I / ı
+#   İ / i
+#
+# The source scheme has 12 keys on the home row, so this file uses the
+# repository's ISO desktop geometry. The extra ISO key before Z is kept as
+# backslash / vertical bar so Z remains on the physical Z key.
+
+displayNames:
+  en: Kazakh Latin (PC experimental)
+  ru: Казахский (латиница, PC экспериментальная)
+  kaz: Қазақша (латын, PC эксперименттік)
+
+label: 'PC experimental'
+
+decimal: ','
+
+macOS:
+  primary:
+    layers:
+      default: |
+        ` 1 2 3 4 5 6 7 8 9 0 - =
+          q w e r t y u ı o p ö ŋ
+          a s d f g h j k l ş i ü
+          \ z x c v b n m ğ ū ä
+
+      shift: &SHIFT |
+        ~ ! @ # $ % ^ & * ( ) _ +
+          Q W E R T Y U I O P Ö Ŋ
+          A S D F G H J K L Ş İ Ü
+          | Z X C V B N M Ğ Ū Ä
+
+      caps: |
+        ` 1 2 3 4 5 6 7 8 9 0 - =
+          Q W E R T Y U I O P Ö Ŋ
+          A S D F G H J K L Ş İ Ü
+          \ Z X C V B N M Ğ Ū Ä
+
+      caps+shift: *SHIFT
+
+      # The source image only specifies the base PC placement.
+      # Option layers therefore preserve the same experimental letter mapping.
+      alt: &ALT |
+        ` 1 2 3 4 5 6 7 8 9 0 - =
+          q w e r t y u ı o p ö ŋ
+          a s d f g h j k l ş i ü
+          \ z x c v b n m ğ ū ä
+
+      alt+shift: |
+        ~ ! @ # $ % ^ & * ( ) _ +
+          Q W E R T Y U I O P Ö Ŋ
+          A S D F G H J K L Ş İ Ü
+          | Z X C V B N M Ğ Ū Ä
+
+      alt+caps: *ALT
+
+      # Keep standard Latin physical outputs for Command shortcuts.
+      cmd: &CMD |
+        ` 1 2 3 4 5 6 7 8 9 0 - =
+          q w e r t y u i o p [ ]
+          a s d f g h j k l ; ' \
+          \ z x c v b n m , . /
+
+      cmd+shift: &CMD_SHIFT |
+        ~ ! @ # $ % ^ & * ( ) _ +
+          Q W E R T Y U I O P { }
+          A S D F G H J K L : " |
+          | Z X C V B N M < > ?
+
+      cmd+alt: *CMD
+      cmd+alt+shift: *CMD_SHIFT
+
+  deadKeys:
+    alt: []
+    alt+caps: []
