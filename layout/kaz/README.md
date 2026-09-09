@@ -7,12 +7,16 @@
 - **Kazakh Arabic** (`kaz-Arab` / `kk-Arab`) — Töte jazu / төте жазу
 - **Kazakh Latin** (`kaz-Latn` / `kk-Latn`) — an **experimental desktop/PC layout**
 
-Kazakh Cyrillic is not included yet.
+Kazakh Cyrillic keyboard layout is not included yet. Script-specific localized
+system key names are available for Arabic, Cyrillic and Latin.
 
 Files:
 
 - `kaz-arab-3-rows.yaml` — Kazakh Arabic 3-row layout
 - `kaz-arab-longpress.yaml` — Kazakh Arabic long-press mappings
+- `kaz-arab-keynames.yaml` — Kazakh Arabic system key names
+- `kaz-cyrl-keynames.yaml` — Kazakh Cyrillic system key names
+- `kaz-latn-keynames.yaml` — Kazakh Latin system key names
 - `kaz-latn-macos-experimental.yaml` — experimental Kazakh Latin desktop/PC layout
 
 ---
@@ -79,10 +83,19 @@ The base letter placement follows the public QWERTY-style keyboard scheme shown 
 The cited government material describes an improved Latin alphabet with
 31 letters and presents a proposed order of Kazakh letters on a keyboard.
 
+A later April 2021 revision reported by ARNA News changed the relevant Latin
+letter from the earlier `Ŋ/ŋ` form to `Ñ/ñ`, citing technical difficulties
+with text input. This experimental layout follows that later revision:
+
+- https://arna-news.kz/arna_kz/chto-izmenilos-v-novom-variante-alfavita-kazahskogo-yazyka-na-latinice/
+
+This is still treated here as reform-discussion material rather than a claim
+that the experimental keyboard is a finalized current standard.
+
 ### Base desktop layout
 
 ```text
-Q W E R T Y U I O P Ö Ŋ
+Q W E R T Y U I O P Ö Ñ
 A S D F G H J K L Ş İ Ü
 Z X C V B N M Ğ Ū Ä
 ```
@@ -90,7 +103,7 @@ Z X C V B N M Ğ Ū Ä
 Lowercase output:
 
 ```text
-q w e r t y u ı o p ö ŋ
+q w e r t y u ı o p ö ñ
 a s d f g h j k l ş i ü
 z x c v b n m ğ ū ä
 ```
@@ -131,6 +144,19 @@ or community feedback become available.
 
 It should therefore be treated as **experimental**, not as a production
 keyboard standard.
+
+---
+
+## Kazakh system key names
+
+Localized system/action key names are stored separately by script.
+
+- Arabic: `kaz-arab-keynames.yaml` — included by `kaz-arab-3-rows.yaml`
+- Cyrillic: `kaz-cyrl-keynames.yaml` — ready for a future Kazakh Cyrillic layout
+- Latin: `kaz-latn-keynames.yaml` — ready for a future Kazakh Latin touch layout
+
+The sets cover Space, Return, contextual Return actions (Search, Go, Send,
+Join, Continue, Done, Next, Route), Emergency, Cancel, Undo and Redo.
 
 ---
 

@@ -1,0 +1,15 @@
+space: كەتىك
+return: ەنگىزۋ
+return-alts:
+  search: ىزدەۋ
+  go: ءوتۋ
+  send: جىبەرۋ
+  join: قوسىلۋ
+  continue: جالعاستىرۋ
+  done: دايىن
+  next: كەلەسى
+  route: باعدار
+emergency: SOS
+cancel: بولدىرماۋ
+undo: ارتقا
+redo: قايتالاۋ

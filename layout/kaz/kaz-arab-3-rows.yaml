@@ -32,3 +32,4 @@ iOS:
         \s{shiftSymbols} \s{spacer:0.25} . ، ؟ ! ' \s{spacer:0.25} \s{backspace}
 
 longpress: !include kaz-arab-longpress.yaml
+keyNames: !include kaz-arab-keynames.yaml

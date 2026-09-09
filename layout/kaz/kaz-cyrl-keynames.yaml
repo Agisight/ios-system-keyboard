@@ -1,0 +1,15 @@
+space: Кетік
+return: Енгізу
+return-alts:
+  search: Іздеу
+  go: Өту
+  send: Жіберу
+  join: Қосылу
+  continue: Жалғастыру
+  done: Дайын
+  next: Келесі
+  route: Бағдар
+emergency: SOS
+cancel: Болдырмау
+undo: Артқа
+redo: Қайталау
