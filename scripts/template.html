@@ -503,7 +503,7 @@ function showMacModal(langName,macosFiles){
   ov.innerHTML=`<div class="modal ${!isMobile ? 'modal-wide' : ''}">
     <div class="modal-hdr">
       ${MACOS_ICON.replace('width="14" height="14"','width="24" height="24"')}
-      <div class="modal-hdr-text"><h3>${langName}</h3><p>Раскладка для macOS</p></div>
+      <div class="modal-hdr-text"><h3>${macosFiles.length===1 ? macosFiles[0].name : langName}</h3><p>Раскладка для macOS</p></div>
       <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</button>
     </div>
     <div class="modal-body">${bodyContent}</div>
@@ -561,9 +561,11 @@ function showList(anim){
     html+=`<div class="lv-section-title">${sec.group}</div>`;
     sec.langs.forEach(lang=>{
       html+=`<div class="lv-card">`;
+      const attachedMac=(lang.macos||[]).filter(m=>!m.separate);
+      const separateMac=(lang.macos||[]).filter(m=>m.separate);
       lang.layouts.forEach((lay,li)=>{
         const isFirst=li===0;
-        const macBtn=isFirst&&lang.macos?`<button class="lv-macos" onclick="event.stopPropagation();showMacModal('${lang.name.replace(/'/g,"\\'")}',${JSON.stringify(lang.macos).replace(/"/g,'&quot;')})">${MACOS_ICON} macOS</button>`:'';
+        const macBtn=isFirst&&attachedMac.length?`<button class="lv-macos" onclick="event.stopPropagation();showMacModal('${lang.name.replace(/'/g,"\\'")}',${JSON.stringify(attachedMac).replace(/"/g,'&quot;')})">${MACOS_ICON} macOS</button>`:'';
         html+=`<div class="lv-row" onclick="openKbd('${sec.langs.indexOf(lang)}','${li}','${DATA.indexOf(sec)}')">
           ${isFirst?`<div class="lv-icon" style="background:${sec.color}">${lang.code}</div>`:'<div style="width:34px;flex-shrink:0"></div>'}
           <div class="lv-text">
@@ -571,6 +573,17 @@ function showList(anim){
             <div class="lv-sub">${isFirst?lang.native:lay.label}</div>
           </div>
           ${macBtn}
+          <div class="lv-chevron">›</div>
+        </div>`;
+      });
+      separateMac.forEach(m=>{
+        html+=`<div class="lv-row" onclick="event.stopPropagation();showMacModal('${m.name.replace(/'/g,"\\'")}',${JSON.stringify([m]).replace(/"/g,'&quot;')})">
+          <div style="width:34px;flex-shrink:0"></div>
+          <div class="lv-text">
+            <div class="lv-title">${m.name}</div>
+            <div class="lv-sub">Раскладка для macOS</div>
+          </div>
+          <div class="lv-macos">${MACOS_ICON} macOS</div>
           <div class="lv-chevron">›</div>
         </div>`;
       });

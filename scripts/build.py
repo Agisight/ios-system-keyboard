@@ -235,8 +235,11 @@ def discover():
                     
                     m_default = None
                     m_alt = None
+                    separate_macos = False
                     try:
                         m_data = load_yaml(mf)
+                        name = get_display_name(m_data, code) or name
+                        separate_macos = bool(m_data.get("separateMacOS"))
                         m_layers = find_layers_deep(m_data.get("macOS") or m_data.get("macos") or m_data)
                         if m_layers:
                             m_default = parse_rows(m_layers.get("default"))
@@ -246,7 +249,8 @@ def discover():
                         
                     entry = {
                         "name": name,
-                        "file": f"{clean_stem}.keylayout"
+                        "file": f"{clean_stem}.keylayout",
+                        "separate": separate_macos
                     }
                     if m_default and m_alt:
                         entry["default"] = m_default

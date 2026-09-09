@@ -20,6 +20,7 @@ displayNames:
   kaz: Қазақша (латын, PC эксперименттік)
 
 label: 'PC experimental'
+separateMacOS: true
 
 decimal: ','
 
