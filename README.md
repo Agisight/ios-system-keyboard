@@ -46,11 +46,11 @@ iOS:
   primary:
     layers:
       default: |
-        й ү у к е н ң г ш з х
+        й ү у к е н г ш ң з х
         ө ы в а п р о л д ж э
         \s{shift} я ч с м и т ь б ю \s{backspace}
       shift: |
-        Й Ү У К Е Н Ң Г Ш З Х
+        Й Ү У К Е Н Г Ш Ң З Х
         Ө Ы В А П Р О Л Д Ж Э
         \s{shift} Я Ч С М И Т Ь Б Ю \s{backspace}
 ```
@@ -128,11 +128,11 @@ iOS:
   primary:
     layers:
       default: |
-        й ү у к е н ң г ш з х
+        й ү у к е н г ш ң з х
         ө ы в а п р о л д ж э
         \s{shift} я ч с м и т ь б ю \s{backspace}
       shift: |
-        Й Ү У К Е Н Ң Г Ш З Х
+        Й Ү У К Е Н Г Ш Ң З Х
         Ө Ы В А П Р О Л Д Ж Э
         \s{shift} Я Ч С М И Т Ь Б Ю \s{backspace}
 ```
