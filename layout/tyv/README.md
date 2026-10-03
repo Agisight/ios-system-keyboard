@@ -13,7 +13,16 @@ For iPad keyboard versions there is only 1 version, because there are enough spa
 
 ## Tuvan macOS
 
-Keyboard uses swapping/replacing less frequent letters (ФЩУ) to ӨҢҮ letters, making less frequent letters accessible via `Option` (aka `ALT`).
+Keyboard uses swapping/replacing less frequent letters (ФЩЦ) to ӨҢҮ letters, making less frequent letters accessible via `Option` (aka `ALT`).
+
+Ң sits in place of Щ. Both letters have the same descender (tail), which makes it easy to remember. This keeps Г and Ш in their usual Russian positions, so the rest of the layout stays identical to ЙЦУКЕН:
+
+```
+Russian: й ц у к е н г ш щ з х ъ
+Tuvan:   й ү у к е н г ш ң з х ъ
+```
+
+The replaced letters stay available via `Option`: Ц (on Ү), Щ (on Ң), Ф (on Ө).
 
 # Tuvan keyNames
 
