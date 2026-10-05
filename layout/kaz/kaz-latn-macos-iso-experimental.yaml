@@ -1,8 +1,8 @@
-# Experimental desktop/PC layout for Kazakh Latin.
+# Experimental macOS ISO layout for Kazakh Latin.
 #
 # Base letter placement follows the public QWERTY keyboard scheme shown in
 # materials from the 2021 Kazakh Latin alphabet reform discussion:
-# https://primeminister.kz/ru/news/a-mamin-provel-zasedanie-nackomissii-po-perevodu-alfavita-kazahskogo-yazyka-na-latinskuyu-grafiku-280497
+# https://primeminister.kz/ru/news/a-mamin-provel-zasedanie-nackomissii-po-perevodu-alfavita-kazahskogo-yazyka-na-latinicu-280497
 #
 # A later April 2021 revision reported by ARNA News uses Ñ/ñ instead of the
 # earlier Ŋ/ŋ form:
@@ -10,21 +10,23 @@
 #
 # Experimental: not a finalized or standardized production layout.
 #
-# Kazakh-specific casing used here:
+# This is the primary desktop geometry for the experiment. It maps the source
+# 12/12/10 Kazakh letter rows onto an ISO keyboard by using the extra ISO key
+# before Z for backslash / vertical bar.
+#
+# Kazakh-specific casing:
 #   I / ı
 #   İ / i
-#
-# The source scheme has 12 keys on the home row, so this file uses the
-# repository's ISO desktop geometry. The extra ISO key before Z is kept as
-# backslash / vertical bar so Z remains on the physical Z key.
 
 displayNames:
-  en: Kazakh Latin (experimental)
-  ru: Казахский (латиница, экспериментальная)
-  kaz: Қазақша (латын, эксперименттік)
+  en: Kazakh Latin (ISO, experimental)
+  ru: Казахский (латиница, ISO, экспериментальная)
+  kaz: Қазақша (латын, ISO, эксперименттік)
 
-label: 'Experimental'
+label: 'ISO · Experimental'
 separateMacOS: true
+geometry: ISO
+recommended: true
 
 decimal: ','
 
@@ -51,8 +53,6 @@ macOS:
 
       caps+shift: *SHIFT
 
-      # The source image only specifies the base PC placement.
-      # Option layers therefore preserve the same experimental letter mapping.
       alt: &ALT |
         ` 1 2 3 4 5 6 7 8 9 0 - =
           q w e r t y u ı o p ö ñ
@@ -67,7 +67,8 @@ macOS:
 
       alt+caps: *ALT
 
-      # Keep standard Latin physical outputs for Command shortcuts.
+      # Command-modified layers use Latin physical outputs for common shortcuts.
+      # Row lengths intentionally follow ISO geometry: 13 / 12 / 12 / 11.
       cmd: &CMD |
         ` 1 2 3 4 5 6 7 8 9 0 - =
           q w e r t y u i o p [ ]

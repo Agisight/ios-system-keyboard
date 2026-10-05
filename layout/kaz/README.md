@@ -17,7 +17,8 @@ Files:
 - `kaz-arab-keynames.yaml` — Kazakh Arabic system key names
 - `kaz-cyrl-keynames.yaml` — Kazakh Cyrillic system key names
 - `kaz-latn-keynames.yaml` — Kazakh Latin system key names
-- `kaz-latn-macos-experimental.yaml` — experimental Kazakh Latin desktop/PC layout
+- `kaz-latn-macos-iso-experimental.yaml` — primary experimental Kazakh Latin macOS ISO layout
+- `kaz-latn-macos-ansi-experimental.yaml` — optional experimental Kazakh Latin macOS ANSI adaptation
 
 ---
 
@@ -71,28 +72,26 @@ engineer at a major technology company**.
 
 ---
 
-## Kazakh Latin — experimental desktop layout
+## Kazakh Latin — experimental desktop layouts
 
-`kaz-latn-macos-experimental.yaml` is an **experimental desktop layout**.
-It is not intended to define a final or standardized Kazakh Latin keyboard.
+The Kazakh Latin desktop work is experimental. It is not intended to define a
+finalized or standardized Kazakh Latin keyboard.
 
-The base letter placement follows the public QWERTY-style keyboard scheme shown in materials from the 2021 Kazakh Latin alphabet reform discussion:
+The base letter placement follows the public QWERTY-style keyboard scheme shown
+in materials from the 2021 Kazakh Latin alphabet reform discussion:
 
-- https://primeminister.kz/ru/news/a-mamin-provel-zasedanie-nackomissii-po-perevodu-alfavita-kazahskogo-yazyka-na-latinskuyu-grafiku-280497
-
-The cited government material describes an improved Latin alphabet with
-31 letters and presents a proposed order of Kazakh letters on a keyboard.
+- https://primeminister.kz/ru/news/a-mamin-provel-zasedanie-nackomissii-po-perevodu-alfavita-kazahskogo-yazyka-na-latinicu-280497
 
 A later April 2021 revision reported by ARNA News changed the relevant Latin
-letter from the earlier `Ŋ/ŋ` form to `Ñ/ñ`, citing technical difficulties
-with text input. This experimental layout follows that later revision:
+letter from the earlier `Ŋ/ŋ` form to `Ñ/ñ`, citing technical difficulties with
+text input:
 
-- https://arna-news.kz/arna_kz/chto-izmenilos-v-novom-variante-alfavita-kazahskogo-yazyka-na-latinice/
+- https://arna-news.kz/arna_kz/chto-izmenilos-v-novom-variante-alfavita-kazahskogo-jazyka-na-latinice/
 
-This is still treated here as reform-discussion material rather than a claim
-that the experimental keyboard is a finalized current standard.
+This repository treats those materials as reform-discussion references rather
+than as evidence of a finalized current standard.
 
-### Base desktop layout
+### Canonical experimental letter order
 
 ```text
 Q W E R T Y U I O P Ö Ñ
@@ -115,35 +114,39 @@ I ↔ ı
 İ ↔ i
 ```
 
-This follows the alphabet shown in the source material, where `I ı` and `İ i`
-are distinct letter pairs.
+### macOS ISO — primary experimental geometry
 
-### Desktop implementation
+`kaz-latn-macos-iso-experimental.yaml` is the primary macOS desktop variant.
 
-The source scheme is a **Desktop/QWERTY layout**, not a mobile keyboard. The YAML
-therefore uses the repository's desktop `macOS.primary.layers` format.
+It uses ISO physical geometry (`13 / 12 / 12 / 11`). The extra ISO key before
+`Z` provides `\` / `|`, so all Kazakh letters remain in the source row order.
 
-The layout uses ISO desktop geometry because the proposed second letter row
-contains 12 keys. The extra ISO key before `Z` is kept as `\` / `|`, allowing
-`Z` to remain on the physical Z key.
+### macOS ANSI — optional adaptation
 
-Command-modified layers preserve standard Latin physical outputs for common macOS shortcuts.
+`kaz-latn-macos-ansi-experimental.yaml` is an optional adaptation for ANSI
+hardware (`13 / 13 / 11 / 10`).
+
+The source scheme needs 12 letters on both the QWERTY and home rows. ANSI has
+one extra position on the QWERTY row and one fewer position on the home row, so
+`Ü/ü` moves to the physical ANSI backslash-key position at the far right of the
+QWERTY row. `\` and `|` remain available there through Option and
+Option+Shift.
+
+Command-modified layers keep standard Latin physical outputs for common macOS
+shortcuts.
 
 ### Experimental status
 
-This layout is included for:
-
-- technical preview;
-- keyboard ergonomics research;
-- testing against Kazakh Latin language data;
-- comparison with future or alternative Kazakh Latin layouts.
+These layouts are included for technical preview, keyboard ergonomics research,
+testing against Kazakh Latin language data, and comparison with future or
+alternative Kazakh Latin layouts.
 
 The alphabet, punctuation layers, modifier behavior and physical placement may
 be revised as additional standards, official specifications, usability studies
 or community feedback become available.
 
-It should therefore be treated as **experimental**, not as a production
-keyboard standard.
+They should therefore be treated as **experimental**, not as production
+keyboard standards.
 
 ---
 
