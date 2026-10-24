@@ -1,0 +1,44 @@
+# East Circassian (Kabardian) long-press.
+# Every Kabardian letter beyond the Russian alphabet is a digraph (base letter + ъ, ь or ӏ).
+# ъ and ӏ are on the visible layer, so digraphs can always be typed letter by letter;
+# long-press only offers them as a shortcut. Order follows corpus frequency
+# (rf-keyboard-corpora/data/kbd/adiga.ai/frequencies), most frequent first.
+к: къ кӏ
+К: Къ Кӏ
+г: гъ
+Г: Гъ
+ж: жь
+Ж: Жь
+л: лъ лӏ
+Л: Лъ Лӏ
+п: пӏ
+П: Пӏ
+т: тӏ
+Т: Тӏ
+ф: фӏ
+Ф: Фӏ
+х: хь хъ
+Х: Хь Хъ
+ц: цӏ
+Ц: Цӏ
+щ: щӏ
+Щ: Щӏ
+д: дж дз
+Д: Дж Дз
+е: ё
+Е: Ё
+
+# Punctuation / symbol alternates (same as Russian)
+'0': '°'
+₽: '$ € £ ¥ ￦'
+'#': №
+'.': '…'
+'%': '‰ ∞'
+'=': '≠ ≈'
+'-': '• – —'
+'/': '\'
+'&': §
+'?': ¿
+'!': ¡
+'’': "' ’ ‘ `"
+'“': '" ” “ „ » «'
