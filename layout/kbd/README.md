@@ -46,10 +46,10 @@ Most frequent first:
 
 The keyboard emits the real palochka: `ӏ` (U+04CF) lowercase, `Ӏ` (U+04C0) uppercase.
 
-This matters for Kabardian in particular: in the corpus behind the frequency file, about a third of
-palochka occurrences (`КІ`, 1.75% of letters) are typed with the Ukrainian/Belarusian `І` (U+0406)
-instead of `Ӏ`, because people have no palochka key. Text processing should treat U+04C0, U+04CF,
-U+0406/U+0456, Latin `I`/`l` and the digit `1` in this position as the same letter.
+Without a palochka key people type look-alikes instead: Latin `I`, lowercase `l`, the digit `1`, or
+the Ukrainian/Belarusian `І` (U+0406). Text processing (search, autocorrection, training data)
+should normalize all of these to the palochka, U+04C0 (or U+04CF in lowercase), and never to
+U+0406: `І` is a different letter, used in Ukrainian, Belarusian, Kazakh, Khakas and Komi.
 
 ## To do
 

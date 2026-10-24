@@ -55,8 +55,7 @@ uppercase layer, the same convention as the Chechen layout.
 
 Without a palochka key people type look-alikes instead: Latin `I`, lowercase `l`, the digit `1`, or
 the Ukrainian/Belarusian `І` (U+0406). The same word then exists in several spellings, which hurts
-search, spell-checking and machine-learning data. The Kabardian frequency file in this project shows
-the problem directly: about a third of its palochka occurrences are `І` (U+0406) rather than `Ӏ`.
+search, spell-checking and machine-learning data.
 
 Most published Adyghe text uses U+04C0 in both cases, so text processing (search, autocorrection,
 training data) should treat U+04C0, U+04CF and the look-alikes above as the same letter.
