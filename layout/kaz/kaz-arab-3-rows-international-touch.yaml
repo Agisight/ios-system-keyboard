@@ -1,0 +1,33 @@
+displayNames:
+  en: Kazakh (Arabic)
+  ru: Казахский (арабская письменность)
+  kaz: قازاقشا (تٶتە)
+
+label: 'International Touch'
+
+ABC: 'ABC'
+abc: 'abc'
+
+iOS:
+  primary:
+    layers:
+      default: |
+        ق ۋ ە ر ت ي ۇ ى و پ
+        ا س د ء ف گ ح ج ك ل
+        ز ش ع چ ۆ ڭ ب ن م \s{backspace}
+
+      longpress: |
+        ح : ھ
+
+      symbols-1: |
+        1 2 3 4 5 6 7 8 9 0
+        - / : ؛ ( ) ¥ & @ "
+        \s{shiftSymbols} \s{spacer:0.25} . ، ؟ ! ' \s{spacer:0.25} \s{backspace}
+
+      symbols-2: |
+        [ ] { } # % ^ * + =
+        _ \ | ~ < > $ € ₸ •
+        \s{shiftSymbols} \s{spacer:0.25} . ، ؟ ! ' \s{spacer:0.25} \s{backspace}
+
+longpress: !include kaz-arab-touch-longpress.yaml
+keyNames: !include kaz-arab-keynames.yaml
