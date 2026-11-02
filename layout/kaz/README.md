@@ -12,8 +12,13 @@ system key names are available for Arabic, Cyrillic and Latin.
 
 Files:
 
-- `kaz-arab-3-rows.yaml` — Kazakh Arabic 3-row layout
+- `kaz-arab-3-rows.yaml` — Kazakh Arabic 3-row layout (International)
 - `kaz-arab-longpress.yaml` — Kazakh Arabic long-press mappings
+- `kaz-arab-3-rows-default.yaml` — Kazakh Arabic Default layout (reported as the most common in Xinjiang)
+- `kaz-arab-3-rows-default-touch.yaml` — Kazakh Arabic Default Touch layout for smartphones
+- `kaz-arab-default-longpress.yaml` — long-press mappings for Default and Default Touch
+- `kaz-arab-3-rows-international-touch.yaml` — Kazakh Arabic International Touch layout
+- `kaz-arab-touch-longpress.yaml` — long-press mappings for International Touch
 - `kaz-arab-keynames.yaml` — Kazakh Arabic system key names
 - `kaz-cyrl-keynames.yaml` — Kazakh Cyrillic system key names
 - `kaz-latn-keynames.yaml` — Kazakh Latin system key names
@@ -69,6 +74,24 @@ Other implementation details:
 
 The implementation also received a **private technical review from a keyboard
 engineer at a major technology company**.
+
+### Layout variants
+
+Besides the International layout above, `layout/kaz/` has three more Kazakh
+Arabic variants. They share the same letters and differ in key placement:
+
+| Variant | File | Notes |
+| --- | --- | --- |
+| International | `kaz-arab-3-rows.yaml` | Murat Karibay's design; four extra letters via Shift and long-press |
+| Default | `kaz-arab-3-rows-default.yaml` | Has a Shift key; `ف گ ح` are on the Shift layer |
+| Default Touch | `kaz-arab-3-rows-default-touch.yaml` | No Shift key; `گ ح` on the main layer, `ا → ف` by long-press |
+| International Touch | `kaz-arab-3-rows-international-touch.yaml` | No Shift key; `ح → ھ` by long-press |
+
+The Default, Default Touch and International Touch variants were contributed
+by Murat Karibay.
+
+Each variant has its own long-press file, so the existing
+`kaz-arab-longpress.yaml` used by the International layout is unchanged.
 
 ---
 
