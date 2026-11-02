@@ -87,6 +87,9 @@ Arabic variants. They share the same letters and differ in key placement:
 | Default Touch | `kaz-arab-3-rows-default-touch.yaml` | No Shift key; `گ ح` on the main layer, `ا → ف` by long-press |
 | International Touch | `kaz-arab-3-rows-international-touch.yaml` | No Shift key; `ح → ھ` by long-press |
 
+The Default, Default Touch and International Touch variants were contributed
+by Murat Karibay.
+
 Each variant has its own long-press file, so the existing
 `kaz-arab-longpress.yaml` used by the International layout is unchanged.
 
