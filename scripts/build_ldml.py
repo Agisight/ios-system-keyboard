@@ -14,7 +14,9 @@ sys.path.append(str(ROOT / "scripts"))
 from build import discover
 
 DIST = ROOT / "dist"
-ARTIFACT_DIR = Path("/Users/ali/.gemini/antigravity/brain/be4388cf-b1be-4032-868a-a726ff7127b6")
+# Optional: extra copy of the viewer (e.g. an IDE artifacts folder). Off unless the env var is set.
+_artifact_env = os.environ.get("LDML_ARTIFACT_DIR")
+ARTIFACT_DIR = Path(_artifact_env) if _artifact_env else None
 
 SYMBOL_NAMES = {
     '.': 'period', ',': 'comma', '?': 'question', '!': 'exclam',
@@ -1073,7 +1075,9 @@ def generate_html_viewer(data_groups, lp_map):
         f.write(html_template)
     print(f"✅ Создано (в проекте): {out_file} ({len(html_template)//1024} KB)")
     
-    # Сохраняем копию в директорию артефактов (если доступна)
+    # Сохраняем копию в директорию артефактов (только если задан LDML_ARTIFACT_DIR)
+    if ARTIFACT_DIR is None:
+        return
     try:
         ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
         art_file = ARTIFACT_DIR / "ldml_keyboards.html"
@@ -1081,7 +1085,7 @@ def generate_html_viewer(data_groups, lp_map):
             f.write(html_template)
         print(f"✅ Создано (артефакт): {art_file}")
     except Exception as e:
-        print(f"ℹ️ Пропущено сохранение артефакта Antigravity (не критично для CI): {e}")
+        print(f"ℹ️ Пропущено сохранение копии в LDML_ARTIFACT_DIR (не критично для CI): {e}")
 
 if __name__ == "__main__":
     data_groups, lp_map = discover()
